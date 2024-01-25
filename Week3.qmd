@@ -1,0 +1,35 @@
+# 1. Summary
+
+## Definition
+
+regression:
+$$
+y_{i} =  \beta _{0} + \beta_{1}x_{i} + \epsilon _{i}
+$$
+$\beta_{0}$ is the intercept(when $x=0$, $y = \beta{0}$). \
+$\beta_{1}$ is the 'slope'. \
+$\epsilon_{i}$ is a random error. \
+
+
+## 1.1 Corrections
+
+### Geometric
+
+The collected remote sensing data may distort the image due to angle of view, terrain, wind and earth rotation, so geometric correction is required.
+<p align="center">
+  <img src="fig/week3/fig1.png" alt="Alt Text" width="300"/>
+</p>
+*Visualization of geometric correction*
+
+### Atmospheric
+
+### Orthorectification/ Topographic correction
+
+###  Radiometric
+
+
+## 1.2 Data joining and enhancement
+
+### Feathering
+
+### Image enhancement

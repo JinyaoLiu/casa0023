@@ -1,0 +1,71 @@
+# 1. Module aims
+
+Operationalise remotely sensed Earth observation data for informing decisions on environmental hazards arising from a changing climate, specifically in relation to urban areas and future urban sustainability.
+
+# 2. Summary
+
+## Definition
+
+Remote sensing: acquiring information from a distance(e.g. Landsat and Sentinel), achieved through sensors(Satellites, Planes, Drones, Phones and free standing on the ground or sea).
+
+Waves of an electromagnetic field, travel through space and carry radiant energy = Electromagnetic radiation (EMR). Waves are part of the EMR spectrum.
+
+Energy carried by EMR waves = radiant energy
+
+Energy per unit of time = radiant flux
+
+Energy from the sun = incoming short wave radiation or shortwave radiation
+
+Energy (solar power) from the sun per unit area per unit time (from electromagnetic radiation) = solar irradiance (per unit time - flux)
+
+Energy leaving a surface per unit area per unit time = Exitance (emittance) (per unit time - flux)
+
+Flux means time.
+
+Rayleigh = particles are very small compared to the wavelength
+
+Mie = particles are the same size compared to the wavelength
+
+Non selective = particles are much larger than the wavelength
+
+## Two types of sensors
+
+|                 passive                 |             active             |
+|:---------------------------------------:|:------------------------------:|
+|          use available energy           | energy source for illumination |
+|              emit nothing               |      emit electromagnetic      |
+| detecting reflected energy from the sun |               \-               |
+|     energy in electromagnetic waves     |               \-               |
+|   human eye, camera, satellite sensor   |      Radar, X-ray, LiDAR       |
+|     ![Image 1](fig/week1/fig1.png)      | ![Image 2](fig/week1/fig2.png) |
+
+## Electromagnetic waves
+
+$$
+\lambda = \frac{c }{v} 
+$$
+![Image 3](fig/week1/fig3.png) This kind of energy waves reflected by the surface.
+
+## Scattering in action
+
+Sunlight is scattered by particles in the atmosphere and smaller wavelengths scatter easier. Wavelength of visible light(from long to short): red, orange, yellow, green and blue.
+
+Thus both sky and ocean seems blue in eyes for blue light has shorter wavelength and is easy to be scattered and reflected. But there's no atmosphere on the moon so no scattering can happen, thus the moon have a black sky.
+
+So clouds is a big problem in remotely sensing for it will affect the wavelength received by satellite. Use Synthetic Aperture Radar(SAR) to "see through clouds".
+
+## Interacting with Earth's surface
+
+Bidirectional Reflectance Distribution Function(BRDF): Change view and illumination angles.
+
+SAR data
+
+## Data formats
+
+![Image 4](fig/week1/fig4.png)
+
+```{r}
+1 + 1
+```
+
+summarise, application reflection 内容摘要，数据/概念/方法（或相关概念）已应用于文献/政策或其他研究，对所呈现内容的个人反思
