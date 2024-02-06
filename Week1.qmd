@@ -28,6 +28,20 @@ Mie = particles are the same size compared to the wavelength
 
 Non selective = particles are much larger than the wavelength
 
+Data formats
+![Image 4](fig/week1/fig4.png)
+
+$$ \left\{
+\begin{array}{l}
+ \text{geosynchronous orbit (GSO) = satellite matches the Earth's rotation } \\
+ \text{geostationary orbit = holds same position, usually only for communications but some sensors are geostationary.} 
+\end{array}
+\right. $$
+
+
+
+
+
 ## Two types of sensors
 
 |                 passive                 |             active             |
@@ -60,12 +74,33 @@ Bidirectional Reflectance Distribution Function(BRDF): Change view and illuminat
 
 SAR data
 
-## Data formats
+## Resolution
 
-![Image 4](fig/week1/fig4.png)
+remotely sensed data varied based on four resolution:
 
-```{r}
-1 + 1
-```
+$$ \left\{
+\begin{array}{l}
+ \text{Spatial} \\
+ \text{Spectral} \\
+ \text{Temporal} \\
+ \text{Radiometric}
+\end{array}
+\right. $$
+
+
+### Spectral resolution
+
+Take values for each wavelength across the electromagnetic spectrum to create a spectral signature thus every feature on Earth will have a unique spectral signature.
+
+Constrain: atmospheric window - Water vapour, ozone, carbon dioxide and atmospheric molecules block parts of the the spectrum, we can only observe where there aren't absorbed by the atmosphere.
+
+
+![Image 5](fig/week1/fig5.png)
+
+
+
+
+
+
 
 summarise, application reflection 内容摘要，数据/概念/方法（或相关概念）已应用于文献/政策或其他研究，对所呈现内容的个人反思

@@ -21,6 +21,21 @@ The collected remote sensing data may distort the image due to angle of view, te
 </p>
 *Visualization of geometric correction*
 
+solution: 
+Step 1: model coordinates to give geometric transformation coefficients.\
+Step 2: use distorted x or y as the dependent or independent for linear regression.\
+$$
+\left\{\begin{matrix}
+ x = a_{0} + a_{1}x^{i} + a_2y^i + \epsilon_i \\ 
+ y = b_{0} + b_{1}x^{i} + b_2y^i + \epsilon_i 
+\end{matrix}\right.
+$$
+from positions in original image($x^i$ and $y^i$) to rectified map($x$ and $y$). \
+
+
+Step 3: minimize the RMSE.
+
+
 ### Atmospheric
 
 ### Orthorectification/ Topographic correction
