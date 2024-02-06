@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>week1</title>
+<title>week3</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,16 +23,16 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="Week1_files/libs/clipboard/clipboard.min.js"></script>
-<script src="Week1_files/libs/quarto-html/quarto.js"></script>
-<script src="Week1_files/libs/quarto-html/popper.min.js"></script>
-<script src="Week1_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="Week1_files/libs/quarto-html/anchor.min.js"></script>
-<link href="Week1_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="Week1_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="Week1_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="Week1_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="Week1_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="Week3_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Week3_files/libs/quarto-html/quarto.js"></script>
+<script src="Week3_files/libs/quarto-html/popper.min.js"></script>
+<script src="Week3_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Week3_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Week3_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Week3_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Week3_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Week3_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Week3_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -47,113 +47,44 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="module-aims" class="level1">
-<h1>1. Module aims</h1>
-<p>Operationalise remotely sensed Earth observation data for informing decisions on environmental hazards arising from a changing climate, specifically in relation to urban areas and future urban sustainability.</p>
-</section>
 <section id="summary" class="level1">
-<h1>2. Summary</h1>
+<h1>1. Summary</h1>
 <section id="definition" class="level2">
 <h2 class="anchored" data-anchor-id="definition">Definition</h2>
-<p>Remote sensing: acquiring information from a distance(e.g.&nbsp;Landsat and Sentinel), achieved through sensors(Satellites, Planes, Drones, Phones and free standing on the ground or sea).</p>
-<p>Waves of an electromagnetic field, travel through space and carry radiant energy = Electromagnetic radiation (EMR). Waves are part of the EMR spectrum.</p>
-<p>Energy carried by EMR waves = radiant energy</p>
-<p>Energy per unit of time = radiant flux</p>
-<p>Energy from the sun = incoming short wave radiation or shortwave radiation</p>
-<p>Energy (solar power) from the sun per unit area per unit time (from electromagnetic radiation) = solar irradiance (per unit time - flux)</p>
-<p>Energy leaving a surface per unit area per unit time = Exitance (emittance) (per unit time - flux)</p>
-<p>Flux means time.</p>
-<p>Rayleigh = particles are very small compared to the wavelength</p>
-<p>Mie = particles are the same size compared to the wavelength</p>
-<p>Non selective = particles are much larger than the wavelength</p>
-<p>Data formats <img src="fig/week1/fig4.png" class="img-fluid" alt="Image 4"></p>
-<p><span class="math display">\[ \left\{
-\begin{array}{l}
-\text{geosynchronous orbit (GSO) = satellite matches the Earth's rotation } \\
-\text{geostationary orbit = holds same position, usually only for communications but some sensors are geostationary.}
-\end{array}
-\right. \]</span></p>
+<p>regression: <span class="math display">\[
+y_{i} =  \beta _{0} + \beta_{1}x_{i} + \epsilon _{i}
+\]</span> <span class="math inline">\(\beta_{0}\)</span> is the intercept(when <span class="math inline">\(x=0\)</span>, <span class="math inline">\(y = \beta{0}\)</span>).<br>
+<span class="math inline">\(\beta_{1}\)</span> is the ‘slope’.<br>
+<span class="math inline">\(\epsilon_{i}\)</span> is a random error.<br>
+</p>
 </section>
-<section id="two-types-of-sensors" class="level2">
-<h2 class="anchored" data-anchor-id="two-types-of-sensors">Two types of sensors</h2>
-<table class="table">
-<colgroup>
-<col style="width: 56%">
-<col style="width: 43%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;">passive</th>
-<th style="text-align: center;">active</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">use available energy</td>
-<td style="text-align: center;">energy source for illumination</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">emit nothing</td>
-<td style="text-align: center;">emit electromagnetic</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">detecting reflected energy from the sun</td>
-<td style="text-align: center;">-</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">energy in electromagnetic waves</td>
-<td style="text-align: center;">-</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">human eye, camera, satellite sensor</td>
-<td style="text-align: center;">Radar, X-ray, LiDAR</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><img src="fig/week1/fig1.png" class="img-fluid" alt="Image 1"></td>
-<td style="text-align: center;"><img src="fig/week1/fig2.png" class="img-fluid" alt="Image 2"></td>
-</tr>
-</tbody>
-</table>
+<section id="corrections" class="level2">
+<h2 class="anchored" data-anchor-id="corrections">1.1 Corrections</h2>
+<section id="geometric" class="level3">
+<h3 class="anchored" data-anchor-id="geometric">Geometric</h3>
+The collected remote sensing data may distort the image due to angle of view, terrain, wind and earth rotation, so geometric correction is required.
+<p align="center">
+<img src="fig/week3/fig1.png" alt="Alt Text" width="300">
+</p>
+<p><em>Visualization of geometric correction</em></p>
 </section>
-<section id="electromagnetic-waves" class="level2">
-<h2 class="anchored" data-anchor-id="electromagnetic-waves">Electromagnetic waves</h2>
-<p><span class="math display">\[
-\lambda = \frac{c }{v}
-\]</span> <img src="fig/week1/fig3.png" class="img-fluid" alt="Image 3"> This kind of energy waves reflected by the surface.</p>
+<section id="atmospheric" class="level3">
+<h3 class="anchored" data-anchor-id="atmospheric">Atmospheric</h3>
 </section>
-<section id="scattering-in-action" class="level2">
-<h2 class="anchored" data-anchor-id="scattering-in-action">Scattering in action</h2>
-<p>Sunlight is scattered by particles in the atmosphere and smaller wavelengths scatter easier. Wavelength of visible light(from long to short): red, orange, yellow, green and blue.</p>
-<p>Thus both sky and ocean seems blue in eyes for blue light has shorter wavelength and is easy to be scattered and reflected. But there’s no atmosphere on the moon so no scattering can happen, thus the moon have a black sky.</p>
-<p>So clouds is a big problem in remotely sensing for it will affect the wavelength received by satellite. Use Synthetic Aperture Radar(SAR) to “see through clouds”.</p>
+<section id="orthorectification-topographic-correction" class="level3">
+<h3 class="anchored" data-anchor-id="orthorectification-topographic-correction">Orthorectification/ Topographic correction</h3>
 </section>
-<section id="interacting-with-earths-surface" class="level2">
-<h2 class="anchored" data-anchor-id="interacting-with-earths-surface">Interacting with Earth’s surface</h2>
-<p>Bidirectional Reflectance Distribution Function(BRDF): Change view and illumination angles.</p>
-<p>SAR data</p>
+<section id="radiometric" class="level3">
+<h3 class="anchored" data-anchor-id="radiometric">Radiometric</h3>
 </section>
-<section id="resolution" class="level2">
-<h2 class="anchored" data-anchor-id="resolution">Resolution</h2>
-<p>remotely sensed data varied based on four resolution:</p>
-<p><span class="math display">\[ \left\{
-\begin{array}{l}
-\text{Spatial} \\
-\text{Spectral} \\
-\text{Temporal} \\
-\text{Radiometric}
-\end{array}
-\right. \]</span></p>
-<section id="spectral-resolution" class="level3">
-<h3 class="anchored" data-anchor-id="spectral-resolution">Spectral resolution</h3>
-<p>Take values for each wavelength across the electromagnetic spectrum to create a spectral signature thus every feature on Earth will have a unique spectral signature.</p>
-<p>Constrain: atmospheric window - Water vapour, ozone, carbon dioxide and atmospheric molecules block parts of the the spectrum, we can only observe where there aren’t absorbed by the atmosphere.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="fig/week1/fig5.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Image 5</figcaption>
-</figure>
-</div>
-<p>summarise, application reflection 内容摘要，数据/概念/方法（或相关概念）已应用于文献/政策或其他研究，对所呈现内容的个人反思</p>
+</section>
+<section id="data-joining-and-enhancement" class="level2">
+<h2 class="anchored" data-anchor-id="data-joining-and-enhancement">1.2 Data joining and enhancement</h2>
+<section id="feathering" class="level3">
+<h3 class="anchored" data-anchor-id="feathering">Feathering</h3>
+</section>
+<section id="image-enhancement" class="level3">
+<h3 class="anchored" data-anchor-id="image-enhancement">Image enhancement</h3>
 </section>
 </section>
 </section>
