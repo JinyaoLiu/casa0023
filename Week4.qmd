@@ -1,0 +1,33 @@
+# 1. Summary
+
+## Example applications
+
+Urban expansion
+Sensor: Landsat
+
+LULC(land use and land cover)
+
+Urban green spaces
+
+Disaster response/preparedness
+
+SAR(Synthetic Aperture Radar)
+Amplitude(backscatter) and phase
+
+InSAR
+
+Monitoring forests + illegal logging
+pre-processing
+creating metrics
+definition of feature space
+used for basci classification
+training data(machine learning)
+classification(supervised or unsupervised)(random forest)(need hyperparameters like DBSCAN)
+
+Droughts
+
+Forest fires
+
+
+
+## Policy challenges
