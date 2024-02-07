@@ -47,5 +47,75 @@
     "title": "1  1. Module aims",
     "section": "2.6 Resolution",
     "text": "2.6 Resolution\nremotely sensed data varied based on four resolution:\n\\[ \\left\\{\n\\begin{array}{l}\n\\text{Spatial} \\\\\n\\text{Spectral} \\\\\n\\text{Temporal} \\\\\n\\text{Radiometric}\n\\end{array}\n\\right. \\]\n\n2.6.1 Spectral resolution\nTake values for each wavelength across the electromagnetic spectrum to create a spectral signature thus every feature on Earth will have a unique spectral signature.\nConstrain: atmospheric window - Water vapour, ozone, carbon dioxide and atmospheric molecules block parts of the the spectrum, we can only observe where there aren’t absorbed by the atmosphere.\n\n\n\nImage 5\n\n\nsummarise, application reflection 内容摘要，数据/概念/方法（或相关概念）已应用于文献/政策或其他研究，对所呈现内容的个人反思"
+  },
+  {
+    "objectID": "Week3.html#definition",
+    "href": "Week3.html#definition",
+    "title": "3  1. Summary",
+    "section": "3.1 Definition",
+    "text": "3.1 Definition\nregression: \\[\ny_{i} =  \\beta _{0} + \\beta_{1}x_{i} + \\epsilon _{i}\n\\] \\(\\beta_{0}\\) is the intercept(when \\(x=0\\), \\(y = \\beta{0}\\)).\n\\(\\beta_{1}\\) is the ‘slope’.\n\\(\\epsilon_{i}\\) is a random error."
+  },
+  {
+    "objectID": "Week3.html#corrections",
+    "href": "Week3.html#corrections",
+    "title": "3  1. Summary",
+    "section": "3.2 1.1 Corrections",
+    "text": "3.2 1.1 Corrections\n\n3.2.1 Geometric\nThe collected remote sensing data may distort the image due to angle of view, terrain, wind and earth rotation, so geometric correction is required.\n\n\n\nVisualization of geometric correction\nsolution: Step 1: model coordinates to give geometric transformation coefficients.\nStep 2: use distorted x or y as the dependent or independent for linear regression.\n\\[\n\\left\\{\\begin{matrix}\nx = a_{0} + a_{1}x^{i} + a_2y^i + \\epsilon_i \\\\\ny = b_{0} + b_{1}x^{i} + b_2y^i + \\epsilon_i\n\\end{matrix}\\right.\n\\] from positions in original image(\\(x^i\\) and \\(y^i\\)) to rectified map(\\(x\\) and \\(y\\)).\n\nStep 3: minimize the RMSE.\n\n\n3.2.2 Atmospheric\n\n\n3.2.3 Orthorectification/ Topographic correction\n\n\n3.2.4 Radiometric"
+  },
+  {
+    "objectID": "Week3.html#data-joining-and-enhancement",
+    "href": "Week3.html#data-joining-and-enhancement",
+    "title": "3  1. Summary",
+    "section": "3.3 1.2 Data joining and enhancement",
+    "text": "3.3 1.2 Data joining and enhancement\n\n3.3.1 Feathering\n\n\n3.3.2 Image enhancement"
+  },
+  {
+    "objectID": "Week2.html#section",
+    "href": "Week2.html#section",
+    "title": "2  1. Summary",
+    "section": "2.1 ",
+    "text": "2.1"
+  },
+  {
+    "objectID": "Week4.html#example-applications",
+    "href": "Week4.html#example-applications",
+    "title": "4  1. Summary",
+    "section": "4.1 Example applications",
+    "text": "4.1 Example applications\nUrban expansion Sensor: Landsat\nLULC(land use and land cover)\nUrban green spaces\nDisaster response/preparedness\nSAR(Synthetic Aperture Radar) Amplitude(backscatter) and phase\nInSAR\nMonitoring forests + illegal logging pre-processing creating metrics definition of feature space used for basci classification training data(machine learning) classification(supervised or unsupervised)(random forest)(need hyperparameters like DBSCAN)\nDroughts\nForest fires"
+  },
+  {
+    "objectID": "Week4.html#policy-challenges",
+    "href": "Week4.html#policy-challenges",
+    "title": "4  1. Summary",
+    "section": "4.2 Policy challenges",
+    "text": "4.2 Policy challenges"
+  },
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "5  Introduction",
+    "section": "",
+    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+  },
+  {
+    "objectID": "summary.html",
+    "href": "summary.html",
+    "title": "6  Summary",
+    "section": "",
+    "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "0023RS",
+    "section": "",
+    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.\n\n1 + 1\n\n[1] 2"
   }
 ]
