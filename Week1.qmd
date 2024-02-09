@@ -1,10 +1,16 @@
-# 1. Module aims
+---
+title: "Getting started with remote sensing"
+
+bibliography: references1.bib
+---
+# Getting started with remote sensing
+## Module aims
 
 Operationalise remotely sensed Earth observation data for informing decisions on environmental hazards arising from a changing climate, specifically in relation to urban areas and future urban sustainability.
 
-# 2. Summary
+## Summary
 
-## Definition
+### Definition
 
 Remote sensing: acquiring information from a distance(e.g. Landsat and Sentinel), achieved through sensors(Satellites, Planes, Drones, Phones and free standing on the ground or sea).
 
@@ -42,7 +48,7 @@ $$ \left\{
 
 
 
-## Two types of sensors
+### Two types of sensors
 
 |                 passive                 |             active             |
 |:---------------------------------------:|:------------------------------:|
@@ -53,14 +59,14 @@ $$ \left\{
 |   human eye, camera, satellite sensor   |      Radar, X-ray, LiDAR       |
 |     ![Image 1](fig/week1/fig1.png)      | ![Image 2](fig/week1/fig2.png) |
 
-## Electromagnetic waves
+### Electromagnetic waves
 
 $$
 \lambda = \frac{c }{v} 
 $$
 ![Image 3](fig/week1/fig3.png) This kind of energy waves reflected by the surface.
 
-## Scattering in action
+### Scattering in action
 
 Sunlight is scattered by particles in the atmosphere and smaller wavelengths scatter easier. Wavelength of visible light(from long to short): red, orange, yellow, green and blue.
 
@@ -68,13 +74,7 @@ Thus both sky and ocean seems blue in eyes for blue light has shorter wavelength
 
 So clouds is a big problem in remotely sensing for it will affect the wavelength received by satellite. Use Synthetic Aperture Radar(SAR) to "see through clouds".
 
-## Interacting with Earth's surface
-
-Bidirectional Reflectance Distribution Function(BRDF): Change view and illumination angles.
-
-SAR data
-
-## Resolution
+### Resolution
 
 remotely sensed data varied based on four resolution:
 
@@ -97,10 +97,20 @@ Constrain: atmospheric window - Water vapour, ozone, carbon dioxide and atmosphe
 
 ![Image 5](fig/week1/fig5.png)
 
+## Applications
+
+Remote sensing can be used widely in nature analysis and human activities as shown follows.
+![Image 6](fig/week1/fig6.png)
+[@gisbox]
+
+One of the applications I am very interested in is the use of remote sensing technology to predict fires, especially mountain fires. In the American College Students Mathematical Contest in Modeling in 2021, I tried related content, such as how to use remote sensing drones to monitor fire situations and inform local fire brigades in time. This is obviously more mathematical and will use a lot of modeling knowledge, but in fact there is a lack of a lot of remote sensing data, such as the fact that there will be a relatively long period of temperature change before the open fire burns [@MaffeiCarmine2021Cmat] and after it is extinguished[@SandalErzurumluGülden2024Dofi]. If remote sensing technology can be used to detect such changes, it will make a great contribution to the fire prediction and prevention of its recurrence.[@GaleMatthewG.2021Ffft]
 
 
+## Refelction
 
+This lecture is really helpful to me. Honestly, I knew very little about remote sensing before this course, so I chose this course because I wanted to learn something completely new. This lecture gives me a general outline of remote sensing. I have dealt with a lot of data in my undergraduate study, and I was curious about data collection at that time. Unfortunately, how to collect raw data is not included in my undergraduate study, but from this lecture, I can see that this course is what I want to know. At the same time, it seems that this course can serve as a bridge between the data processing and modeling methods I learned before and the actual problem handling, and can transform the actual problems into more familiar data for further analysis. I hope this course will be of great help to the collection and search of data in my subsequent research.
 
+## References {-}
 
-
-summarise, application reflection 内容摘要，数据/概念/方法（或相关概念）已应用于文献/政策或其他研究，对所呈现内容的个人反思
+::: {#refs}
+:::

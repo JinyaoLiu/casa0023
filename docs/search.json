@@ -2,9 +2,9 @@
   {
     "objectID": "Week1.html",
     "href": "Week1.html",
-    "title": "1  1. Module aims",
+    "title": "1  Getting started with remote sensing",
     "section": "",
-    "text": "2 2. Summary"
+    "text": "2 Getting started with remote sensing"
   },
   {
     "objectID": "Week1.html#definition",
@@ -72,7 +72,7 @@
   {
     "objectID": "Week2.html#section",
     "href": "Week2.html#section",
-    "title": "2  1. Summary",
+    "title": "2  Summary",
     "section": "2.1 ",
     "text": "2.1"
   },
@@ -93,9 +93,9 @@
   {
     "objectID": "intro.html",
     "href": "intro.html",
-    "title": "5  Introduction",
+    "title": "5  bibliography: references.bib",
     "section": "",
-    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+    "text": "6 Introduction\nThis is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2\n\n\n\nReferences\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
   },
   {
     "objectID": "summary.html",
@@ -117,5 +117,47 @@
     "title": "0023RS",
     "section": "",
     "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "Week4.html",
+    "href": "Week4.html",
+    "title": "4  Summary",
+    "section": "",
+    "text": "Edinburgh, located in southeastern Scotland, is the capital city of Scotland. It follows the development characteristic of most English cities, which is to gradually expand based on the original Old Town and develop the New Town (although it is called New Town, it is more than three hundred years old). Today, the city of Edinburgh develops outwards with the old Town and the New town as the core, especially extending to the southwest since the barrier to northward expansion was the lake and encircling marsh. In economic terms, Edinburgh today is primarily a service provider and the second largest travel destination in the UK. At the same time, as can be seen from its published 2030 plan, the Edinburgh government hopes to develop its northern coastal natural resources for further development of tourism at this stage. It is worth mentioning that the tourism landscape development project in the north of the country has had a government-led development plan since 2000, but due to various problems such as the financial crisis and defamation charges, its planning has been continuously shelved, and has been replaced by another similar plan, but this plan is still in the initial stage of establishment, there is still a lot of room for development. In addition, another focus of the Edinburgh government is the establishment of the blue and green network of the city, which is expected to complete the establishment of the blue and green network of the entire city of Edinburgh by 2030 and achieve the goal of zero carbon emissions, so as to effectively mitigate its heat island effect.\n\n5 Application\nIf we want to get a deeper understanding of this kind of problem, you can consider some quantitative indicators related to remote sensing, which may include some data related to climate change, population activity, and land north of Edinburgh over the past few decades. For example, the impact of tourism on the heat island effect of Edinburgh, the change trend of environmental resources in the northern coastal areas, the expansion of urban area in the north of Edinburgh, the growth of population and even the change of its composition, as well as the transformation of some land uses may also reflect the problems it is currently facing. 根据以上信息可知，在未来几年中爱丁堡的环保型旅游项目很可能成为其所需要的重点项目，因此\n\n\n6 Reflection\nThis kind of research on a city’s policy is undoubtedly complicated, because it needs to consider many factors. To be honest, at the beginning I read a lot of literature but still didn’t know where to start. But from what I’ve written so far, it would be much easier to focus on just a small part of the city, especially if that part is a little more independent than the rest of the city."
+  },
+  {
+    "objectID": "Week1.html#summary",
+    "href": "Week1.html#summary",
+    "title": "1  Getting started with remote sensing",
+    "section": "2.2 Summary",
+    "text": "2.2 Summary\n\n2.2.1 Definition\nRemote sensing: acquiring information from a distance(e.g. Landsat and Sentinel), achieved through sensors(Satellites, Planes, Drones, Phones and free standing on the ground or sea).\nWaves of an electromagnetic field, travel through space and carry radiant energy = Electromagnetic radiation (EMR). Waves are part of the EMR spectrum.\nEnergy carried by EMR waves = radiant energy\nEnergy per unit of time = radiant flux\nEnergy from the sun = incoming short wave radiation or shortwave radiation\nEnergy (solar power) from the sun per unit area per unit time (from electromagnetic radiation) = solar irradiance (per unit time - flux)\nEnergy leaving a surface per unit area per unit time = Exitance (emittance) (per unit time - flux)\nFlux means time.\nRayleigh = particles are very small compared to the wavelength\nMie = particles are the same size compared to the wavelength\nNon selective = particles are much larger than the wavelength\nData formats \n\\[ \\left\\{\n\\begin{array}{l}\n\\text{geosynchronous orbit (GSO) = satellite matches the Earth's rotation } \\\\\n\\text{geostationary orbit = holds same position, usually only for communications but some sensors are geostationary.}\n\\end{array}\n\\right. \\]\n\n\n2.2.2 Two types of sensors\n\n\n\n\n\n\n\npassive\nactive\n\n\n\n\nuse available energy\nenergy source for illumination\n\n\nemit nothing\nemit electromagnetic\n\n\ndetecting reflected energy from the sun\n-\n\n\nenergy in electromagnetic waves\n-\n\n\nhuman eye, camera, satellite sensor\nRadar, X-ray, LiDAR\n\n\n\n\n\n\n\n\n\n2.2.3 Electromagnetic waves\n\\[\n\\lambda = \\frac{c }{v}\n\\]  This kind of energy waves reflected by the surface.\n\n\n2.2.4 Scattering in action\nSunlight is scattered by particles in the atmosphere and smaller wavelengths scatter easier. Wavelength of visible light(from long to short): red, orange, yellow, green and blue.\nThus both sky and ocean seems blue in eyes for blue light has shorter wavelength and is easy to be scattered and reflected. But there’s no atmosphere on the moon so no scattering can happen, thus the moon have a black sky.\nSo clouds is a big problem in remotely sensing for it will affect the wavelength received by satellite. Use Synthetic Aperture Radar(SAR) to “see through clouds”.\n\n\n2.2.5 Resolution\nremotely sensed data varied based on four resolution:\n\\[ \\left\\{\n\\begin{array}{l}\n\\text{Spatial} \\\\\n\\text{Spectral} \\\\\n\\text{Temporal} \\\\\n\\text{Radiometric}\n\\end{array}\n\\right. \\]\n\n\n2.2.6 Spectral resolution\nTake values for each wavelength across the electromagnetic spectrum to create a spectral signature thus every feature on Earth will have a unique spectral signature.\nConstrain: atmospheric window - Water vapour, ozone, carbon dioxide and atmospheric molecules block parts of the the spectrum, we can only observe where there aren’t absorbed by the atmosphere.\n\n\n\nImage 5"
+  },
+  {
+    "objectID": "Week1.html#module-aims",
+    "href": "Week1.html#module-aims",
+    "title": "1  Getting started with remote sensing",
+    "section": "2.1 Module aims",
+    "text": "2.1 Module aims\nOperationalise remotely sensed Earth observation data for informing decisions on environmental hazards arising from a changing climate, specifically in relation to urban areas and future urban sustainability."
+  },
+  {
+    "objectID": "Week1.html#applications",
+    "href": "Week1.html#applications",
+    "title": "1  Getting started with remote sensing",
+    "section": "2.3 Applications",
+    "text": "2.3 Applications\nRemote sensing can be used widely in nature analysis and human activities as shown follows.  (GISBOX, n.d.)\nOne of the applications I am very interested in is the use of remote sensing technology to predict fires, especially mountain fires. In the American College Students Mathematical Contest in Modeling in 2021, I tried related content, such as how to use remote sensing drones to monitor fire situations and inform local fire brigades in time. This is obviously more mathematical and will use a lot of modeling knowledge, but in fact there is a lack of a lot of remote sensing data, such as the fact that there will be a relatively long period of temperature change before the open fire burns (Maffei, Lindenbergh, and Menenti 2021) and after it is extinguished(Sandal Erzurumlu and Yıldız 2024). If remote sensing technology can be used to detect such changes, it will make a great contribution to the fire prediction and prevention of its recurrence.(Gale et al. 2021)"
+  },
+  {
+    "objectID": "Week1.html#references",
+    "href": "Week1.html#references",
+    "title": "1  Getting started with remote sensing",
+    "section": "References",
+    "text": "References\n\n\nGale, Matthew G., Geoffrey J. Cary, Albert I. J. M. Van Dijk, and Marta\nYebra. 2021. “Forest Fire Fuel Through the Lens of Remote Sensing:\nReview of Approaches, Challenges and Future Directions in the Remote\nSensing of Biotic Determinants of Fire Behaviour.” Remote\nSensing of Environment 255: 112282–82.\n\n\nGISBOX. n.d. “Remote Sensing.” https://www.gisbox.ro/remote-sensing/.\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.\n\n\nMaffei, Carmine, Roderik Lindenbergh, and Massimo Menenti. 2021.\n“Combining Multi-Spectral and Thermal Remote Sensing to Predict\nForest Fire Characteristics.” ISPRS Journal of Photogrammetry\nand Remote Sensing 181: 400–412.\n\n\nSandal Erzurumlu, Gülden, and Nuriye Ebru Yıldız. 2024.\n“Determination of Fire Intensity After Forest Fire by Remote\nSensing: Marmaris Case Study.” BIO Web of Conferences\n85: 1041–41."
+  },
+  {
+    "objectID": "Week1.html#refelction",
+    "href": "Week1.html#refelction",
+    "title": "1  Getting started with remote sensing",
+    "section": "2.4 Refelction",
+    "text": "2.4 Refelction\nThis lecture is really helpful to me. Honestly, I knew very little about remote sensing before this course, so I chose this course because I wanted to learn something completely new. This lecture gives me a general outline of remote sensing. I have dealt with a lot of data in my undergraduate study, and I was curious about data collection at that time. Unfortunately, how to collect raw data is not included in my undergraduate study, but from this lecture, I can see that this course is what I want to know. At the same time, it seems that this course can serve as a bridge between the data processing and modeling methods I learned before and the actual problem handling, and can transform the actual problems into more familiar data for further analysis. I hope this course will be of great help to the collection and search of data in my subsequent research."
   }
 ]
