@@ -16,7 +16,7 @@ book:
     - summary.qmd
     - references.qmd
 
-bibliography: references.bib
+# bibliography: references.bib
 
 format:
   html:

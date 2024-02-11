@@ -1,9 +1,8 @@
 ---
 title: "Getting started with remote sensing"
 
-bibliography: references1.bib
+bibliography: references_1.bib
 ---
-# Getting started with remote sensing
 ## Module aims
 
 Operationalise remotely sensed Earth observation data for informing decisions on environmental hazards arising from a changing climate, specifically in relation to urban areas and future urban sustainability.
@@ -40,7 +39,7 @@ Data formats
 $$ \left\{
 \begin{array}{l}
  \text{geosynchronous orbit (GSO) = satellite matches the Earth's rotation } \\
- \text{geostationary orbit = holds same position, usually only for communications but some sensors are geostationary.} 
+ \text{geostationary orbit = holds same position, usually only for communications.} 
 \end{array}
 \right. $$
 
@@ -57,7 +56,9 @@ $$ \left\{
 | detecting reflected energy from the sun |               \-               |
 |     energy in electromagnetic waves     |               \-               |
 |   human eye, camera, satellite sensor   |      Radar, X-ray, LiDAR       |
-|     ![Image 1](fig/week1/fig1.png)      | ![Image 2](fig/week1/fig2.png) |
+|     ![Image 1](fig/week1/fig1.png)      | ![Image 2](fig/week1/fig2.png)  |
+
+[@Adamo]
 
 ### Electromagnetic waves
 
@@ -65,6 +66,7 @@ $$
 \lambda = \frac{c }{v} 
 $$
 ![Image 3](fig/week1/fig3.png) This kind of energy waves reflected by the surface.
+[@unknown]
 
 ### Scattering in action
 
@@ -96,6 +98,8 @@ Constrain: atmospheric window - Water vapour, ozone, carbon dioxide and atmosphe
 
 
 ![Image 5](fig/week1/fig5.png)
+[@nasa_image]
+
 
 ## Applications
 
