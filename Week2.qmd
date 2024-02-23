@@ -1,1 +1,15 @@
-https://tongmengxie.github.io/Xaringan_slides
+# Portfolio
+
+This week, instead of a learning diary article, I have made a portfolio on a sensor - the SLSTR.
+
+## The presentation
+
+```{r echo = FALSE, out.width='40%'}
+xaringanExtra::embed_xaringan(
+  url = "https://jinyaoliu.github.io/0023_ppt/",
+  ratio = "16:9")
+```
+
+
+
+
