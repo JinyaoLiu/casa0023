@@ -1,29 +1,47 @@
-# 1. Summary
+---
+title: "Data processing"
 
-## Definition
+bibliography: references_3.bib
+---
 
-regression:
-$$
-y_{i} =  \beta _{0} + \beta_{1}x_{i} + \epsilon _{i}
-$$
-$\beta_{0}$ is the intercept(when $x=0$, $y = \beta{0}$). \
-$\beta_{1}$ is the 'slope'. \
-$\epsilon_{i}$ is a random error. \
+## Summary
 
+### Definition
 
-## 1.1 Corrections
+* Radiance, refers to any radiation leaving the Earth (i.e. upwelling, toward the sensor.
 
-### Geometric
+* Irradiance, is used to describe downwelling radiation reaching the Earth from the sun.
 
-The collected remote sensing data may distort the image due to angle of view, terrain, wind and earth rotation, so geometric correction is required.
+* Digital number(DN)(0-255 for 8 bit ot 0-65536 for 12 bit): Intensity of the electromagnetic radiation per pixel.
+
+* Reflectance: a property of a material, typically surface reflectance(bottom of atmosphere) but also can be top of atmosphere reflectance.
+
+* Hemispherical reflectance: All of the light leaving the surface goes straight to the sensor (nothing is intercepted or at an angle)
+
+* Apparent reflectance(reflectance): create reflectance accounting for atmospheric and illumination effects. BUT this typically doesn't deal with shadows and directional effects (e.g. viewing angles)
+
+* Mosaicking (similar to merging in GIS): feather the images together to create a seamless mosaic or images.
+
+* Seamline: The dividing line.
+
+### Part 1: Corrections
+
+To deal with the flaws in remotely sensed images, several steps are used to correct them.
+
+![Corrections for different problems](fig/week3/correction.png)
+
+<big>**Geometric correction**</big> 
+
 <p align="center">
   <img src="fig/week3/fig1.png" alt="Alt Text" width="300"/>
 </p>
-*Visualization of geometric correction*
+<p align="center">
+  *Visualization of geometric correction*
+</p>
 
-solution: 
-Step 1: model coordinates to give geometric transformation coefficients.\
-Step 2: use distorted x or y as the dependent or independent for linear regression.\
+ 
+**Step 1:** model coordinates to give geometric transformation coefficients.\
+**Step 2:** use distorted x or y as the dependent or independent for linear regression.\
 $$
 \left\{\begin{matrix}
  x = a_{0} + a_{1}x^{i} + a_2y^i + \epsilon_i \\ 
@@ -33,18 +51,48 @@ $$
 from positions in original image($x^i$ and $y^i$) to rectified map($x$ and $y$). \
 
 
-Step 3: minimize the RMSE.
+**Step 3:** minimize the RMSE.
+
+<big>**Atmospheric correction**</big>
+
+<p align="center">
+  <img src="fig/week3/fig3.png" alt="Alt Text" width="300"/>
+</p>
+<p align="center">
+  *Comparison before and after atmospheric correction* 
+</p>
+  
 
 
-### Atmospheric
+### Part 2: Data joining and enhancement
 
-### Orthorectification/ Topographic correction
+#### Joining
+![Joining](fig/week3/fig2.png)
+[@join]
 
-###  Radiometric
+
+#### Image enhenrence
+
+* Contrast Enhancement: expand the range of image band using
+
+** Minimum-Maximum
+** Percentage Linear and Standard Deviation
+** Piecewise Linear Contrast Stretch
 
 
-## 1.2 Data joining and enhancement
+## Application
 
-### Feathering
+According to the articles I have looked up so far, the correction technology of remote sensing has been relatively mature and widely used in various places (although it is more used for data processing before main analysis rather than see correction as a main discussion topic). For example, @GHOLIZADEH2018240 mainly studied the relationship between soil environment and species diversity through remote sensing data, but adopted many correction methods and PCA dimensionality reduction technology to conduct preliminary processing of remote sensing data.
 
-### Image enhancement
+
+For example, the aaa written by A and the bbb written by b are both useful for correction technology.
+
+But in the cutting-edge research, calibration still has its room for progress, it seems that the continued study of calibration technology is mainly reflected in two parts. One is to consider the correction in different natural environments, such as polar and desert regions, the main goal of which is to make the application of remote sensing technology in extreme areas more stable and reliable. The other is to try to build more advanced models, which may be mainly combined with machine learning, with the main goal of better batch processing of remote sensing data in complex environments.
+
+
+
+
+## References {-}
+
+::: {#refs}
+:::

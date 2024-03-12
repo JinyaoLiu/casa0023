@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>0023RS - 3&nbsp; 1. Summary</title>
+<title>0023RS - 3&nbsp; Data processing</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -76,7 +95,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Week3.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">1. Summary</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Week3.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data processing</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -116,13 +135,13 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Week2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Presentation Ninja</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Portfolio</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Week3.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">1. Summary</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data processing</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -159,19 +178,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#definition" id="toc-definition" class="nav-link active" data-scroll-target="#definition"><span class="header-section-number">3.1</span> Definition</a></li>
-  <li><a href="#corrections" id="toc-corrections" class="nav-link" data-scroll-target="#corrections"><span class="header-section-number">3.2</span> 1.1 Corrections</a>
+  <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary"><span class="header-section-number">3.1</span> Summary</a>
   <ul class="collapse">
-  <li><a href="#geometric" id="toc-geometric" class="nav-link" data-scroll-target="#geometric"><span class="header-section-number">3.2.1</span> Geometric</a></li>
-  <li><a href="#atmospheric" id="toc-atmospheric" class="nav-link" data-scroll-target="#atmospheric"><span class="header-section-number">3.2.2</span> Atmospheric</a></li>
-  <li><a href="#orthorectification-topographic-correction" id="toc-orthorectification-topographic-correction" class="nav-link" data-scroll-target="#orthorectification-topographic-correction"><span class="header-section-number">3.2.3</span> Orthorectification/ Topographic correction</a></li>
-  <li><a href="#radiometric" id="toc-radiometric" class="nav-link" data-scroll-target="#radiometric"><span class="header-section-number">3.2.4</span> Radiometric</a></li>
+  <li><a href="#definition" id="toc-definition" class="nav-link" data-scroll-target="#definition"><span class="header-section-number">3.1.1</span> Definition</a></li>
+  <li><a href="#part-1-corrections" id="toc-part-1-corrections" class="nav-link" data-scroll-target="#part-1-corrections"><span class="header-section-number">3.1.2</span> Part 1: Corrections</a></li>
+  <li><a href="#part-2-data-joining-and-enhancement" id="toc-part-2-data-joining-and-enhancement" class="nav-link" data-scroll-target="#part-2-data-joining-and-enhancement"><span class="header-section-number">3.1.3</span> Part 2: Data joining and enhancement</a></li>
   </ul></li>
-  <li><a href="#data-joining-and-enhancement" id="toc-data-joining-and-enhancement" class="nav-link" data-scroll-target="#data-joining-and-enhancement"><span class="header-section-number">3.3</span> 1.2 Data joining and enhancement</a>
-  <ul class="collapse">
-  <li><a href="#feathering" id="toc-feathering" class="nav-link" data-scroll-target="#feathering"><span class="header-section-number">3.3.1</span> Feathering</a></li>
-  <li><a href="#image-enhancement" id="toc-image-enhancement" class="nav-link" data-scroll-target="#image-enhancement"><span class="header-section-number">3.3.2</span> Image enhancement</a></li>
-  </ul></li>
+  <li><a href="#application" id="toc-application" class="nav-link" data-scroll-target="#application"><span class="header-section-number">3.2</span> Application</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 </nav>
     </div>
@@ -180,7 +194,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">1. Summary</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data processing</span></h1>
 </div>
 
 
@@ -195,26 +209,39 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="definition" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="definition"><span class="header-section-number">3.1</span> Definition</h2>
-<p>regression: <span class="math display">\[
-y_{i} =  \beta _{0} + \beta_{1}x_{i} + \epsilon _{i}
-\]</span> <span class="math inline">\(\beta_{0}\)</span> is the intercept(when <span class="math inline">\(x=0\)</span>, <span class="math inline">\(y = \beta{0}\)</span>).<br>
-<span class="math inline">\(\beta_{1}\)</span> is the ‘slope’.<br>
-<span class="math inline">\(\epsilon_{i}\)</span> is a random error.<br>
-</p>
+<section id="summary" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="summary"><span class="header-section-number">3.1</span> Summary</h2>
+<section id="definition" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="definition"><span class="header-section-number">3.1.1</span> Definition</h3>
+<ul>
+<li><p>Radiance, refers to any radiation leaving the Earth (i.e.&nbsp;upwelling, toward the sensor.</p></li>
+<li><p>Irradiance, is used to describe downwelling radiation reaching the Earth from the sun.</p></li>
+<li><p>Digital number(DN)(0-255 for 8 bit ot 0-65536 for 12 bit): Intensity of the electromagnetic radiation per pixel.</p></li>
+<li><p>Reflectance: a property of a material, typically surface reflectance(bottom of atmosphere) but also can be top of atmosphere reflectance.</p></li>
+<li><p>Hemispherical reflectance: All of the light leaving the surface goes straight to the sensor (nothing is intercepted or at an angle)</p></li>
+<li><p>Apparent reflectance(reflectance): create reflectance accounting for atmospheric and illumination effects. BUT this typically doesn’t deal with shadows and directional effects (e.g.&nbsp;viewing angles)</p></li>
+<li><p>Mosaicking (similar to merging in GIS): feather the images together to create a seamless mosaic or images.</p></li>
+<li><p>Seamline: The dividing line.</p></li>
+</ul>
 </section>
-<section id="corrections" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="corrections"><span class="header-section-number">3.2</span> 1.1 Corrections</h2>
-<section id="geometric" class="level3" data-number="3.2.1">
-<h3 data-number="3.2.1" class="anchored" data-anchor-id="geometric"><span class="header-section-number">3.2.1</span> Geometric</h3>
-The collected remote sensing data may distort the image due to angle of view, terrain, wind and earth rotation, so geometric correction is required.
+<section id="part-1-corrections" class="level3" data-number="3.1.2">
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="part-1-corrections"><span class="header-section-number">3.1.2</span> Part 1: Corrections</h3>
+<p>To deal with the flaws in remotely sensed images, several steps are used to correct them.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig/week3/correction.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Corrections for different problems</figcaption>
+</figure>
+</div>
+<p><big><strong>Geometric correction</strong></big></p>
 <p align="center">
 <img src="fig/week3/fig1.png" alt="Alt Text" width="300">
 </p>
-<p><em>Visualization of geometric correction</em></p>
-<p>solution: Step 1: model coordinates to give geometric transformation coefficients.<br>
-Step 2: use distorted x or y as the dependent or independent for linear regression.<br>
+<p align="center">
+<em>Visualization of geometric correction</em>
+</p>
+<p><strong>Step 1:</strong> model coordinates to give geometric transformation coefficients.<br>
+<strong>Step 2:</strong> use distorted x or y as the dependent or independent for linear regression.<br>
 <span class="math display">\[
 \left\{\begin{matrix}
 x = a_{0} + a_{1}x^{i} + a_2y^i + \epsilon_i \\
@@ -222,28 +249,48 @@ y = b_{0} + b_{1}x^{i} + b_2y^i + \epsilon_i
 \end{matrix}\right.
 \]</span> from positions in original image(<span class="math inline">\(x^i\)</span> and <span class="math inline">\(y^i\)</span>) to rectified map(<span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>).<br>
 </p>
-<p>Step 3: minimize the RMSE.</p>
+<p><strong>Step 3:</strong> minimize the RMSE.</p>
+<p><big><strong>Atmospheric correction</strong></big></p>
+<p align="center">
+<img src="fig/week3/fig3.png" alt="Alt Text" width="300">
+</p>
+<p align="center">
+<em>Comparison before and after atmospheric correction</em>
+</p>
 </section>
-<section id="atmospheric" class="level3" data-number="3.2.2">
-<h3 data-number="3.2.2" class="anchored" data-anchor-id="atmospheric"><span class="header-section-number">3.2.2</span> Atmospheric</h3>
+<section id="part-2-data-joining-and-enhancement" class="level3" data-number="3.1.3">
+<h3 data-number="3.1.3" class="anchored" data-anchor-id="part-2-data-joining-and-enhancement"><span class="header-section-number">3.1.3</span> Part 2: Data joining and enhancement</h3>
+<section id="joining" class="level4" data-number="3.1.3.1">
+<h4 data-number="3.1.3.1" class="anchored" data-anchor-id="joining"><span class="header-section-number">3.1.3.1</span> Joining</h4>
+<p><img src="fig/week3/fig2.png" class="img-fluid" alt="Joining"> <span class="citation" data-cites="join">(<a href="Week1.html#ref-join" role="doc-biblioref">NV5 Geospatial Software, n.d.</a>)</span></p>
 </section>
-<section id="orthorectification-topographic-correction" class="level3" data-number="3.2.3">
-<h3 data-number="3.2.3" class="anchored" data-anchor-id="orthorectification-topographic-correction"><span class="header-section-number">3.2.3</span> Orthorectification/ Topographic correction</h3>
+<section id="image-enhenrence" class="level4" data-number="3.1.3.2">
+<h4 data-number="3.1.3.2" class="anchored" data-anchor-id="image-enhenrence"><span class="header-section-number">3.1.3.2</span> Image enhenrence</h4>
+<ul>
+<li>Contrast Enhancement: expand the range of image band using</li>
+</ul>
+<p>** Minimum-Maximum ** Percentage Linear and Standard Deviation ** Piecewise Linear Contrast Stretch</p>
 </section>
-<section id="radiometric" class="level3" data-number="3.2.4">
-<h3 data-number="3.2.4" class="anchored" data-anchor-id="radiometric"><span class="header-section-number">3.2.4</span> Radiometric</h3>
 </section>
 </section>
-<section id="data-joining-and-enhancement" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="data-joining-and-enhancement"><span class="header-section-number">3.3</span> 1.2 Data joining and enhancement</h2>
-<section id="feathering" class="level3" data-number="3.3.1">
-<h3 data-number="3.3.1" class="anchored" data-anchor-id="feathering"><span class="header-section-number">3.3.1</span> Feathering</h3>
+<section id="application" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="application"><span class="header-section-number">3.2</span> Application</h2>
+<p>According to the articles I have looked up so far, the correction technology of remote sensing has been relatively mature and widely used in various places (although it is more used for data processing before main analysis rather than see correction as a main discussion topic). For example, <span class="citation" data-cites="GHOLIZADEH2018240">Gholizadeh et al. (<a href="Week1.html#ref-GHOLIZADEH2018240" role="doc-biblioref">2018</a>)</span> mainly studied the relationship between soil environment and species diversity through remote sensing data, but adopted many correction methods and PCA dimensionality reduction technology to conduct preliminary processing of remote sensing data.</p>
+<p>For example, the aaa written by A and the bbb written by b are both useful for correction technology.</p>
+<p>But in the cutting-edge research, calibration still has its room for progress, it seems that the continued study of calibration technology is mainly reflected in two parts. One is to consider the correction in different natural environments, such as polar and desert regions, the main goal of which is to make the application of remote sensing technology in extreme areas more stable and reliable. The other is to try to build more advanced models, which may be mainly combined with machine learning, with the main goal of better batch processing of remote sensing data in complex environments.</p>
 </section>
-<section id="image-enhancement" class="level3" data-number="3.3.2">
-<h3 data-number="3.3.2" class="anchored" data-anchor-id="image-enhancement"><span class="header-section-number">3.3.2</span> Image enhancement</h3>
+<section id="references" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-GHOLIZADEH2018240" class="csl-entry" role="listitem">
+Gholizadeh, Hamed, John A. Gamon, Arthur I. Zygielbaum, Ran Wang, Anna K. Schweiger, and Jeannine Cavender-Bares. 2018. <span>“Remote Sensing of Biodiversity: Soil Correction and Data Dimension Reduction Methods Improve Assessment of α-Diversity (Species Richness) in Prairie Ecosystems.”</span> <em>Remote Sensing of Environment</em> 206: 240–53. https://doi.org/<a href="https://doi.org/10.1016/j.rse.2017.12.014">https://doi.org/10.1016/j.rse.2017.12.014</a>.
+</div>
+<div id="ref-join" class="csl-entry" role="listitem">
+NV5 Geospatial Software. n.d. <span>“MosaicSeamless Documentation.”</span> <a href="https://www.nv5geospatialsoftware.com/docs/MosaicSeamless.html" class="uri">https://www.nv5geospatialsoftware.com/docs/MosaicSeamless.html</a>.
+</div>
+</div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -483,7 +530,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./Week2.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Presentation Ninja</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Portfolio</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
