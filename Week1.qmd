@@ -1,7 +1,6 @@
 ---
 title: "Getting started with remote sensing"
 
-bibliography: references_1.bib
 ---
 ## Module aims
 
@@ -114,7 +113,4 @@ One of the applications I am very interested in is the use of remote sensing tec
 
 This lecture is really helpful to me. Honestly, I knew very little about remote sensing before this course, so I chose this course because I wanted to learn something completely new. This lecture gives me a general outline of remote sensing. I have dealt with a lot of data in my undergraduate study, and I was curious about data collection at that time. Unfortunately, how to collect raw data is not included in my undergraduate study, but from this lecture, I can see that this course is what I want to know. At the same time, it seems that this course can serve as a bridge between the data processing and modeling methods I learned before and the actual problem handling, and can transform the actual problems into more familiar data for further analysis. I hope this course will be of great help to the collection and search of data in my subsequent research.
 
-## References {-}
-
-::: {#refs}
-:::
+## References

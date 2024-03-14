@@ -162,12 +162,6 @@ div.csl-indent {
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
-  </div>
-</li>
     </ul>
     </div>
 </nav>
@@ -185,7 +179,8 @@ div.csl-indent {
   <li><a href="#part-2-data-joining-and-enhancement" id="toc-part-2-data-joining-and-enhancement" class="nav-link" data-scroll-target="#part-2-data-joining-and-enhancement"><span class="header-section-number">3.1.3</span> Part 2: Data joining and enhancement</a></li>
   </ul></li>
   <li><a href="#application" id="toc-application" class="nav-link" data-scroll-target="#application"><span class="header-section-number">3.2</span> Application</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection"><span class="header-section-number">3.3</span> Reflection</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">3.4</span> References</a></li>
   </ul>
 </nav>
     </div>
@@ -227,12 +222,12 @@ div.csl-indent {
 <section id="part-1-corrections" class="level3" data-number="3.1.2">
 <h3 data-number="3.1.2" class="anchored" data-anchor-id="part-1-corrections"><span class="header-section-number">3.1.2</span> Part 1: Corrections</h3>
 <p>To deal with the flaws in remotely sensed images, several steps are used to correct them.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="fig/week3/correction.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Corrections for different problems</figcaption>
-</figure>
-</div>
+<p align="center">
+<img src="fig/week3/correction.png" alt="Alt Text" width="600">
+</p>
+<p align="center">
+<em>Corrections for different problem</em>
+</p>
 <p><big><strong>Geometric correction</strong></big></p>
 <p align="center">
 <img src="fig/week3/fig1.png" alt="Alt Text" width="300">
@@ -262,35 +257,67 @@ y = b_{0} + b_{1}x^{i} + b_2y^i + \epsilon_i
 <h3 data-number="3.1.3" class="anchored" data-anchor-id="part-2-data-joining-and-enhancement"><span class="header-section-number">3.1.3</span> Part 2: Data joining and enhancement</h3>
 <section id="joining" class="level4" data-number="3.1.3.1">
 <h4 data-number="3.1.3.1" class="anchored" data-anchor-id="joining"><span class="header-section-number">3.1.3.1</span> Joining</h4>
-<p><img src="fig/week3/fig2.png" class="img-fluid" alt="Joining"> <span class="citation" data-cites="join">(<a href="Week1.html#ref-join" role="doc-biblioref">NV5 Geospatial Software, n.d.</a>)</span></p>
+<p align="center">
+<img src="fig/week3/fig2.png" alt="Alt Text" width="400">
+</p>
+<p align="center">
+<em>How to join</em>
+</p>
+<p><span class="citation" data-cites="join">(<a href="#ref-join" role="doc-biblioref">NV5 Geospatial Software, n.d.</a>)</span></p>
 </section>
 <section id="image-enhenrence" class="level4" data-number="3.1.3.2">
 <h4 data-number="3.1.3.2" class="anchored" data-anchor-id="image-enhenrence"><span class="header-section-number">3.1.3.2</span> Image enhenrence</h4>
 <ul>
-<li>Contrast Enhancement: expand the range of image band using</li>
+<li><p>Contrast Enhancement: expand the range of image band using</p>
+<ul>
+<li>Minimum-Maximum</li>
+<li>Percentage Linear and Standard Deviation</li>
+<li>Piecewise Linear Contrast Stretch</li>
+</ul></li>
 </ul>
-<p>** Minimum-Maximum ** Percentage Linear and Standard Deviation ** Piecewise Linear Contrast Stretch</p>
 </section>
 </section>
 </section>
 <section id="application" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="application"><span class="header-section-number">3.2</span> Application</h2>
-<p>According to the articles I have looked up so far, the correction technology of remote sensing has been relatively mature and widely used in various places (although it is more used for data processing before main analysis rather than see correction as a main discussion topic). For example, <span class="citation" data-cites="GHOLIZADEH2018240">Gholizadeh et al. (<a href="Week1.html#ref-GHOLIZADEH2018240" role="doc-biblioref">2018</a>)</span> mainly studied the relationship between soil environment and species diversity through remote sensing data, but adopted many correction methods and PCA dimensionality reduction technology to conduct preliminary processing of remote sensing data.</p>
-<p>For example, the aaa written by A and the bbb written by b are both useful for correction technology.</p>
-<p>But in the cutting-edge research, calibration still has its room for progress, it seems that the continued study of calibration technology is mainly reflected in two parts. One is to consider the correction in different natural environments, such as polar and desert regions, the main goal of which is to make the application of remote sensing technology in extreme areas more stable and reliable. The other is to try to build more advanced models, which may be mainly combined with machine learning, with the main goal of better batch processing of remote sensing data in complex environments.</p>
+<p>According to the articles I have looked up so far, the correction technology of remote sensing has been relatively mature and widely used in various places (although it is more used for data processing before main analysis rather than see correction as a main discussion topic). For example, <span class="citation" data-cites="GHOLIZADEH2018240">Gholizadeh et al. (<a href="#ref-GHOLIZADEH2018240" role="doc-biblioref">2018</a>)</span> mainly studied the relationship between soil environment and species diversity through remote sensing data, but adopted many correction methods and PCA dimensionality reduction technology to conduct preliminary processing of remote sensing data.</p>
+<p>But in the cutting-edge research, calibration still has its room for progress, it seems that the continued study of calibration technology is mainly reflected in two parts. One is to consider the correction in different natural environments, such as polar<span class="citation" data-cites="Nitze2018">(<a href="#ref-Nitze2018" role="doc-biblioref">Nitze et al. 2018</a>)</span> and desert <span class="citation" data-cites="Ouatiki2023">(<a href="#ref-Ouatiki2023" role="doc-biblioref">Ouatiki, Boudhar, and Chehbouni 2023</a>)</span> regions, the main goal of which is to make the application of remote sensing technology in extreme areas more stable and reliable. The other is to try to build more advanced models, which may be mainly combined with time series <span class="citation" data-cites="Roujean1992">(<a href="#ref-Roujean1992" role="doc-biblioref">Roujean, Leroy, and Deschamps 1992</a>)</span>, machine learning <span class="citation" data-cites="Huifang">(<a href="#ref-Huifang" role="doc-biblioref">Huifang Li and Zhang 2016</a>)</span> or data fusion <span class="citation" data-cites="HAMM2012666">(<a href="#ref-HAMM2012666" role="doc-biblioref">Hamm, Atkinson, and Milton 2012</a>)</span> <span class="citation" data-cites="Thienrry">(<a href="#ref-Thienrry" role="doc-biblioref">Toutin 2011</a>)</span>, with the main goal of better batch processing of remote sensing data in complex environments.</p>
 </section>
-<section id="references" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
-<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<section id="reflection" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="reflection"><span class="header-section-number">3.3</span> Reflection</h2>
+<p>There is no doubt that this lesson is a very important step in remote sensing. In GIS last semester I got uncorrected data and used it to draw a very bad graph (thanks to my friend for teaching me how to find the correct data!). . It is foreseeable that these methods will be frequently used as a very basic part in future practice, just like writing literature review in an article. In addition, I have frequently used methods such as PCA in other courses, but I did not put them into practice in this course. I’d like to try them out later if I get the chance to see if there’s any difference between them and the apps in other classes (although I can’t quite tell the difference so far).</p>
+<p>But it’s very likely that the things that are taught in this lecture will only be used as tools and I won’t study them in depth. I looked at the papers I mentioned earlier, and to be honest, the results didn’t look very good, and although the authors used very complex models, they didn’t have as significant an impact on the results as I expected.</p>
+</section>
+<section id="references" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="references"><span class="header-section-number">3.4</span> References</h2>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-GHOLIZADEH2018240" class="csl-entry" role="listitem">
 Gholizadeh, Hamed, John A. Gamon, Arthur I. Zygielbaum, Ran Wang, Anna K. Schweiger, and Jeannine Cavender-Bares. 2018. <span>“Remote Sensing of Biodiversity: Soil Correction and Data Dimension Reduction Methods Improve Assessment of α-Diversity (Species Richness) in Prairie Ecosystems.”</span> <em>Remote Sensing of Environment</em> 206: 240–53. https://doi.org/<a href="https://doi.org/10.1016/j.rse.2017.12.014">https://doi.org/10.1016/j.rse.2017.12.014</a>.
+</div>
+<div id="ref-HAMM2012666" class="csl-entry" role="listitem">
+Hamm, N. A. S., P. M. Atkinson, and E. J. Milton. 2012. <span>“A Per-Pixel, Non-Stationary Mixed Model for Empirical Line Atmospheric Correction in Remote Sensing.”</span> <em>Remote Sensing of Environment</em> 124: 666–78. https://doi.org/<a href="https://doi.org/10.1016/j.rse.2012.05.033">https://doi.org/10.1016/j.rse.2012.05.033</a>.
+</div>
+<div id="ref-Huifang" class="csl-entry" role="listitem">
+Huifang Li, Huanfeng Shen, Xiaojing Wang, and Liangpei Zhang. 2016. <span>“An Efficient Multi-Resolution Variational Retinex Scheme for the Radiometric Correction of Airborne Remote Sensing Images.”</span> <em>International Journal of Remote Sensing</em> 37 (5): 1154–72. <a href="https://doi.org/10.1080/01431161.2016.1145364">https://doi.org/10.1080/01431161.2016.1145364</a>.
+</div>
+<div id="ref-Nitze2018" class="csl-entry" role="listitem">
+Nitze, Ingmar, Guido Grosse, Benjamin M. Jones, Vladimir E. Romanovsky, and Julia Boike. 2018. <span>“Remote Sensing Quantifies Widespread Abundance of Permafrost Region Disturbances Across the Arctic and Subarctic.”</span> <em>Nature Communications</em> 9 (1): 5423. <a href="https://doi.org/10.1038/s41467-018-07663-3">https://doi.org/10.1038/s41467-018-07663-3</a>.
 </div>
 <div id="ref-join" class="csl-entry" role="listitem">
 NV5 Geospatial Software. n.d. <span>“MosaicSeamless Documentation.”</span> <a href="https://www.nv5geospatialsoftware.com/docs/MosaicSeamless.html" class="uri">https://www.nv5geospatialsoftware.com/docs/MosaicSeamless.html</a>.
 </div>
+<div id="ref-Ouatiki2023" class="csl-entry" role="listitem">
+Ouatiki, H., A. Boudhar, and A. Chehbouni. 2023. <span>“Accuracy Assessment and Bias Correction of Remote Sensing–Based Rainfall Products over Semiarid Watersheds.”</span> <em>Theoretical and Applied Climatology</em> 154: 763–80. <a href="https://doi.org/10.1007/s00704-023-04586-y">https://doi.org/10.1007/s00704-023-04586-y</a>.
 </div>
-
-
+<div id="ref-Roujean1992" class="csl-entry" role="listitem">
+Roujean, Jean-Louis, Marc Leroy, and Pierre-Yves Deschamps. 1992. <span>“A Bidirectional Reflectance Model of the Earth’s Surface for the Correction of Remote Sensing Data.”</span> <em>Journal of Geophysical Research: Atmospheres</em> 97 (D18): 20455–68. <a href="https://doi.org/10.1029/92JD01411">https://doi.org/10.1029/92JD01411</a>.
+</div>
+<div id="ref-Thienrry" class="csl-entry" role="listitem">
+Toutin, Thierry. 2011. <span>“State-of-the-Art of Geometric Correction of Remote Sensing Data: A Data Fusion Perspective.”</span> <em>International Journal of Image and Data Fusion</em> 2 (1): 3–35. <a href="https://doi.org/10.1080/19479832.2010.539188">https://doi.org/10.1080/19479832.2010.539188</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
