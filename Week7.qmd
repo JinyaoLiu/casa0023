@@ -1,0 +1,109 @@
+---
+title: "Data processing"
+
+---
+
+## Summary
+
+### Definition
+
+* Radiance, refers to any radiation leaving the Earth (i.e. upwelling, toward the sensor.
+
+* Irradiance, is used to describe downwelling radiation reaching the Earth from the sun.
+
+* Digital number(DN)(0-255 for 8 bit ot 0-65536 for 12 bit): Intensity of the electromagnetic radiation per pixel.
+
+* Reflectance: a property of a material, typically surface reflectance(bottom of atmosphere) but also can be top of atmosphere reflectance.
+
+* Hemispherical reflectance: All of the light leaving the surface goes straight to the sensor (nothing is intercepted or at an angle)
+
+* Apparent reflectance(reflectance): create reflectance accounting for atmospheric and illumination effects. BUT this typically doesn't deal with shadows and directional effects (e.g. viewing angles)
+
+* Mosaicking (similar to merging in GIS): feather the images together to create a seamless mosaic or images.
+
+* Seamline: The dividing line.
+
+### Part 1: Corrections
+
+To deal with the flaws in remotely sensed images, several steps are used to correct them.
+
+<p align="center">
+  <img src="fig/week3/correction.png" alt="Alt Text" width="600"/>
+</p>
+<p align="center">
+  *Corrections for different problem*
+</p>
+
+<big>**Geometric correction**</big> 
+
+<p align="center">
+  <img src="fig/week3/fig1.png" alt="Alt Text" width="300"/>
+</p>
+<p align="center">
+  *Visualization of geometric correction*
+</p>
+
+ 
+**Step 1:** model coordinates to give geometric transformation coefficients.\
+**Step 2:** use distorted x or y as the dependent or independent for linear regression.\
+$$
+\left\{\begin{matrix}
+ x = a_{0} + a_{1}x^{i} + a_2y^i + \epsilon_i \\ 
+ y = b_{0} + b_{1}x^{i} + b_2y^i + \epsilon_i 
+\end{matrix}\right.
+$$
+from positions in original image($x^i$ and $y^i$) to rectified map($x$ and $y$). \
+
+
+**Step 3:** minimize the RMSE.
+
+<big>**Atmospheric correction**</big>
+
+<p align="center">
+  <img src="fig/week3/fig3.png" alt="Alt Text" width="300"/>
+</p>
+<p align="center">
+  *Comparison before and after atmospheric correction* 
+</p>
+  
+
+
+### Part 2: Data joining and enhancement
+
+#### Joining
+
+<p align="center">
+  <img src="fig/week3/fig2.png" alt="Alt Text" width="400"/>
+</p>
+<p align="center">
+  *How to join* 
+</p>
+
+[@join]
+
+
+#### Image enhenrence
+
+* Contrast Enhancement: expand the range of image band using
+
+  * Minimum-Maximum
+  * Percentage Linear and Standard Deviation
+  * Piecewise Linear Contrast Stretch
+
+
+## Application
+
+According to the articles I have looked up so far, the correction technology of remote sensing has been relatively mature and widely used in various places (although it is more used for data processing before main analysis rather than see correction as a main discussion topic). For example, @GHOLIZADEH2018240 mainly studied the relationship between soil environment and species diversity through remote sensing data, but adopted many correction methods and PCA dimensionality reduction technology to conduct preliminary processing of remote sensing data.
+
+
+But in the cutting-edge research, calibration still has its room for progress, it seems that the continued study of calibration technology is mainly reflected in two parts. One is to consider the correction in different natural environments, such as polar[@Nitze2018] and desert [@Ouatiki2023] regions, the main goal of which is to make the application of remote sensing technology in extreme areas more stable and reliable. The other is to try to build more advanced models, which may be mainly combined with time series [@Roujean1992], machine learning [@Huifang] or data fusion [@HAMM2012666] [@Thienrry], with the main goal of better batch processing of remote sensing data in complex environments.
+
+
+## Reflection
+
+There is no doubt that this lesson is a very important step in remote sensing. In GIS last semester I got uncorrected data and used it to draw a very bad graph (thanks to my friend for teaching me how to find the correct data!). It is foreseeable that these methods will be frequently used as a very basic part in future practice, just like writing literature review in an article. In addition, I have frequently used methods such as PCA in other courses, but I did not put them into practice in this course. I'd like to try them out later if I get the chance to see if there's any difference between them and the apps in other classes (although I can't quite tell the difference so far).
+
+But it's very likely that the things that are taught in this lecture will only be used as tools and I won't study them in depth. I looked at the papers I mentioned earlier, and to be honest, the results didn't look very good, and although the authors used very complex models, they didn't have as significant an impact on the results as I expected.
+
+
+## References

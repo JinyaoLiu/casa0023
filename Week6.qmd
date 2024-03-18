@@ -1,0 +1,100 @@
+---
+title: "Google Earth Engine"
+---
+
+## Summary
+
+### Definition
+
+- Google Earth Engine: offer "Geospatial" processing service at scale, stores data on servers and takes the code written by prohrammer and applies it
+- Image = raster, has bands
+- Feature = vector, has geometry and attributes(dictionary of properties in GEE)
+- ImageCollection = Image stack
+- FeatureColletion = Feature stack(lots of polygons)
+- Image scale: means pixel resolution in GEE, is *set by the output* not input.
+
+### Part 1: The set up of GEE
+
+<big>**GEE basic operation**</big>
+
+  * GEE use JavaScript
+  * Relating spatial data formats we have seen to GEE
+  * Scale(resolution)
+  * Run codes on both the client and server side
+
+
+<p align="center">
+  <img src="fig/week6/fig1.png" alt="Alt Text" width="400"/>
+</p>
+<p align="center">
+  *map after scale* 
+</p>  
+
+### Part 2: GEE in action
+
+<p align="center">
+  <img src="fig/week6/fig2.png" alt="Alt Text" width="400"/>
+</p>
+<p align="center">
+  *screen of GEE* 
+</p>  
+
+A significant advantage of GEE compared to other software I am familiar with before is that it is very fast and does not require much computing resources (because it is an online website). Like GIS, GEE has a lot of objects(vector, raster, feature, string, number) belongs to different classes with specific GEE functions
+
+
+The remote sensing operations using R taught in CASA0005 GIS can basically be implemented in GEE, such as spatial operations (including join, partition statistics, filtering images or specific values) and some analysis methods (such as machine learning, classification, deep learning) and output some charts and applications. The specific code is too much not put here, you can see the ppt of this chapter or check the Internet.
+
+
+## Application
+
+The Google Earth Engine (GEE) platform offers expanded possibilities for conducting earth observation research. Launched in late 2010, it grants access to a wealth of satellite and supplementary data, alongside cloud computing capabilities and processing algorithms designed to handle large datasets with ease. [@rs10101509]Its extensive data archive encompasses information from various satellites, as well as vector datasets from Geographic Information Systems (GIS), social and demographic data, weather records, digital elevation models, and climate datasets. This resource empowers scientists, independent researchers, enthusiasts, and nations to delve into this extensive repository of information for tasks such as change detection, trend mapping, and resource quantification on Earth's surface, surpassing previous capabilities. [@applicationgee] 
+
+<p align="center">
+  <img src="fig/week6/fig3.png" alt="Alt Text" width="400"/>
+</p>
+<p align="right">
+  *Resource from: [@PhamDuc2023]*
+</p>  
+<p align="center">
+  *The fields of articles used GEE* 
+</p>
+
+
+
+Consequently, the platform's popularity has surged, reflected in a sharp increase in the number of GEE-related articles, with nearly 85% of them being published within the last three years.[@PhamDuc2023]
+
+<p align="center">
+  <img src="fig/week6/fig4.png" alt="Alt Text" width="400"/>
+</p>
+</p>
+<p align="right">
+  *Resource from: [@PhamDuc2023]*
+</p> 
+<p align="center">
+  *Articles published each year using GEE* 
+</p>  
+
+In addition, by extracting the keywords of these words to make word clouds, it can be seen that the data observed by Landsat, Stneinel-1, MODIS and Sentinel-2 in GEE are widely used in the research.
+
+<p align="center">
+  <img src="fig/week6/fig5.png" alt="Alt Text" width="400"/>
+</p>
+</p>
+<p align="right">
+  *Resource from: [@PhamDuc2023]*
+</p> 
+<p align="center">
+  *World cloud* 
+</p>  
+
+In the field of Earth and Planetary Science, I am very interested in land use analysis [@LULC]and crop production analysis[@VENKATAPPA2021148829], and the ideas of these two articles happen to be very similar. They all observe changes in the development of remote sensing data by using GEE to visualize it over different time periods, then consider the reasons for the changes, and then consider the impact of some particular event on their research objectives. For example, @VENKATAPPA2021148829 considers the impact of drought and flood on crop production while @LULC considers whether the promulgation of some policies has an impact on land use.
+
+
+## Reflection
+
+GEE is really a popular platform for remote sensing, probably due to the fact that its operating system is very simple and friendly to most people. Although I was prepared to find many articles before I looked up the application of GEE, the number of articles related to it still shocked me. What is even more shocking to me is that there is even a special category of articles on statistics and analysis of these GEE-related articles, and these articles are published almost every year. From discussing the potential and trend of GEE [@GORELICK201718; @rs10101509] to systematically reviewing these texts nearly every year[@rs13183778; @TAMIMINIA2020152], and even considering the impact of major events such as covid-19[@PEREZCUTILLAS2023100907], it can be seen that GEE has undoubtedly become a hot spot in remote sensing in recent years. 
+
+What worried me was that I hadn't worked with JavaScript before, and this week's code, while seemingly basic, still took me a lot of time to understand and find bugs. It seems that GEE will still be needed in the next few weeks of the course, and hopefully I can learn more about JavaScript and how it is used in GEE in the future.
+
+
+## References

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>0023RS - 4&nbsp; Summary</title>
+<title>0023RS - 8&nbsp; Data processing</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -30,8 +49,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Week6.html" rel="next">
-<link href="./Week3.html" rel="prev">
+<link href="./intro.html" rel="next">
+<link href="./Week8.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -62,6 +81,8 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -74,7 +95,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Week4.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Summary</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Week9.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Data processing</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -125,7 +146,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Week4.html" class="sidebar-item-text sidebar-link active">
+  <a href="./Week4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
   </div>
 </li>
@@ -149,7 +170,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Week9.html" class="sidebar-item-text sidebar-link">
+  <a href="./Week9.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Data processing</span></span></a>
   </div>
 </li>
@@ -175,8 +196,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#application" id="toc-application" class="nav-link active" data-scroll-target="#application"><span class="header-section-number">5</span> Application</a></li>
-  <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection"><span class="header-section-number">6</span> Reflection</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary"><span class="header-section-number">8.1</span> Summary</a>
+  <ul class="collapse">
+  <li><a href="#definition" id="toc-definition" class="nav-link" data-scroll-target="#definition"><span class="header-section-number">8.1.1</span> Definition</a></li>
+  <li><a href="#part-1-corrections" id="toc-part-1-corrections" class="nav-link" data-scroll-target="#part-1-corrections"><span class="header-section-number">8.1.2</span> Part 1: Corrections</a></li>
+  <li><a href="#part-2-data-joining-and-enhancement" id="toc-part-2-data-joining-and-enhancement" class="nav-link" data-scroll-target="#part-2-data-joining-and-enhancement"><span class="header-section-number">8.1.3</span> Part 2: Data joining and enhancement</a></li>
+  </ul></li>
+  <li><a href="#application" id="toc-application" class="nav-link" data-scroll-target="#application"><span class="header-section-number">8.2</span> Application</a></li>
+  <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection"><span class="header-section-number">8.3</span> Reflection</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">8.4</span> References</a></li>
   </ul>
 </nav>
     </div>
@@ -185,7 +213,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Summary</span></h1>
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Data processing</span></h1>
 </div>
 
 
@@ -200,16 +228,120 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Edinburgh, located in southeastern Scotland, is the capital city of Scotland. It follows the development characteristic of most English cities, which is to gradually expand based on the original Old Town and develop the New Town (although it is called New Town, it is more than three hundred years old). Today, the city of Edinburgh develops outwards with the old Town and the New town as the core, especially extending to the southwest since the barrier to northward expansion was the lake and encircling marsh. In economic terms, Edinburgh today is primarily a service provider and the second largest travel destination in the UK. At the same time, as can be seen from its published 2030 plan, the Edinburgh government hopes to develop its northern coastal natural resources for further development of tourism at this stage. It is worth mentioning that the tourism landscape development project in the north of the country has had a government-led development plan since 2000, but due to various problems such as the financial crisis and defamation charges, its planning has been continuously shelved, and has been replaced by another similar plan, but this plan is still in the initial stage of establishment, there is still a lot of room for development. In addition, another focus of the Edinburgh government is the establishment of the blue and green network of the city, which is expected to complete the establishment of the blue and green network of the entire city of Edinburgh by 2030 and achieve the goal of zero carbon emissions, so as to effectively mitigate its heat island effect.</p>
-<section id="application" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Application</h1>
-<p>If we want to get a deeper understanding of this kind of problem, you can consider some quantitative indicators related to remote sensing, which may include some data related to climate change, population activity, and land north of Edinburgh over the past few decades. For example, the impact of tourism on the heat island effect of Edinburgh, the change trend of environmental resources in the northern coastal areas, the expansion of urban area in the north of Edinburgh, the growth of population and even the change of its composition, as well as the transformation of some land uses may also reflect the problems it is currently facing. 根据以上信息可知，在未来几年中爱丁堡的环保型旅游项目很可能成为其所需要的重点项目，因此</p>
+<section id="summary" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="summary"><span class="header-section-number">8.1</span> Summary</h2>
+<section id="definition" class="level3" data-number="8.1.1">
+<h3 data-number="8.1.1" class="anchored" data-anchor-id="definition"><span class="header-section-number">8.1.1</span> Definition</h3>
+<ul>
+<li><p>Radiance, refers to any radiation leaving the Earth (i.e.&nbsp;upwelling, toward the sensor.</p></li>
+<li><p>Irradiance, is used to describe downwelling radiation reaching the Earth from the sun.</p></li>
+<li><p>Digital number(DN)(0-255 for 8 bit ot 0-65536 for 12 bit): Intensity of the electromagnetic radiation per pixel.</p></li>
+<li><p>Reflectance: a property of a material, typically surface reflectance(bottom of atmosphere) but also can be top of atmosphere reflectance.</p></li>
+<li><p>Hemispherical reflectance: All of the light leaving the surface goes straight to the sensor (nothing is intercepted or at an angle)</p></li>
+<li><p>Apparent reflectance(reflectance): create reflectance accounting for atmospheric and illumination effects. BUT this typically doesn’t deal with shadows and directional effects (e.g.&nbsp;viewing angles)</p></li>
+<li><p>Mosaicking (similar to merging in GIS): feather the images together to create a seamless mosaic or images.</p></li>
+<li><p>Seamline: The dividing line.</p></li>
+</ul>
 </section>
-<section id="reflection" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> Reflection</h1>
-<p>This kind of research on a city’s policy is undoubtedly complicated, because it needs to consider many factors. To be honest, at the beginning I read a lot of literature but still didn’t know where to start. But from what I’ve written so far, it would be much easier to focus on just a small part of the city, especially if that part is a little more independent than the rest of the city.</p>
+<section id="part-1-corrections" class="level3" data-number="8.1.2">
+<h3 data-number="8.1.2" class="anchored" data-anchor-id="part-1-corrections"><span class="header-section-number">8.1.2</span> Part 1: Corrections</h3>
+<p>To deal with the flaws in remotely sensed images, several steps are used to correct them.</p>
+<p align="center">
+<img src="fig/week3/correction.png" alt="Alt Text" width="600">
+</p>
+<p align="center">
+<em>Corrections for different problem</em>
+</p>
+<p><big><strong>Geometric correction</strong></big></p>
+<p align="center">
+<img src="fig/week3/fig1.png" alt="Alt Text" width="300">
+</p>
+<p align="center">
+<em>Visualization of geometric correction</em>
+</p>
+<p><strong>Step 1:</strong> model coordinates to give geometric transformation coefficients.<br>
+<strong>Step 2:</strong> use distorted x or y as the dependent or independent for linear regression.<br>
+<span class="math display">\[
+\left\{\begin{matrix}
+x = a_{0} + a_{1}x^{i} + a_2y^i + \epsilon_i \\
+y = b_{0} + b_{1}x^{i} + b_2y^i + \epsilon_i
+\end{matrix}\right.
+\]</span> from positions in original image(<span class="math inline">\(x^i\)</span> and <span class="math inline">\(y^i\)</span>) to rectified map(<span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>).<br>
+</p>
+<p><strong>Step 3:</strong> minimize the RMSE.</p>
+<p><big><strong>Atmospheric correction</strong></big></p>
+<p align="center">
+<img src="fig/week3/fig3.png" alt="Alt Text" width="300">
+</p>
+<p align="center">
+<em>Comparison before and after atmospheric correction</em>
+</p>
+</section>
+<section id="part-2-data-joining-and-enhancement" class="level3" data-number="8.1.3">
+<h3 data-number="8.1.3" class="anchored" data-anchor-id="part-2-data-joining-and-enhancement"><span class="header-section-number">8.1.3</span> Part 2: Data joining and enhancement</h3>
+<section id="joining" class="level4" data-number="8.1.3.1">
+<h4 data-number="8.1.3.1" class="anchored" data-anchor-id="joining"><span class="header-section-number">8.1.3.1</span> Joining</h4>
+<p align="center">
+<img src="fig/week3/fig2.png" alt="Alt Text" width="400">
+</p>
+<p align="center">
+<em>How to join</em>
+</p>
+<p><span class="citation" data-cites="join">(<a href="#ref-join" role="doc-biblioref">NV5 Geospatial Software, n.d.</a>)</span></p>
+</section>
+<section id="image-enhenrence" class="level4" data-number="8.1.3.2">
+<h4 data-number="8.1.3.2" class="anchored" data-anchor-id="image-enhenrence"><span class="header-section-number">8.1.3.2</span> Image enhenrence</h4>
+<ul>
+<li><p>Contrast Enhancement: expand the range of image band using</p>
+<ul>
+<li>Minimum-Maximum</li>
+<li>Percentage Linear and Standard Deviation</li>
+<li>Piecewise Linear Contrast Stretch</li>
+</ul></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="application" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="application"><span class="header-section-number">8.2</span> Application</h2>
+<p>According to the articles I have looked up so far, the correction technology of remote sensing has been relatively mature and widely used in various places (although it is more used for data processing before main analysis rather than see correction as a main discussion topic). For example, <span class="citation" data-cites="GHOLIZADEH2018240">Gholizadeh et al. (<a href="#ref-GHOLIZADEH2018240" role="doc-biblioref">2018</a>)</span> mainly studied the relationship between soil environment and species diversity through remote sensing data, but adopted many correction methods and PCA dimensionality reduction technology to conduct preliminary processing of remote sensing data.</p>
+<p>But in the cutting-edge research, calibration still has its room for progress, it seems that the continued study of calibration technology is mainly reflected in two parts. One is to consider the correction in different natural environments, such as polar<span class="citation" data-cites="Nitze2018">(<a href="#ref-Nitze2018" role="doc-biblioref">Nitze et al. 2018</a>)</span> and desert <span class="citation" data-cites="Ouatiki2023">(<a href="#ref-Ouatiki2023" role="doc-biblioref">Ouatiki, Boudhar, and Chehbouni 2023</a>)</span> regions, the main goal of which is to make the application of remote sensing technology in extreme areas more stable and reliable. The other is to try to build more advanced models, which may be mainly combined with time series <span class="citation" data-cites="Roujean1992">(<a href="#ref-Roujean1992" role="doc-biblioref">Roujean, Leroy, and Deschamps 1992</a>)</span>, machine learning <span class="citation" data-cites="Huifang">(<a href="#ref-Huifang" role="doc-biblioref">Huifang Li and Zhang 2016</a>)</span> or data fusion <span class="citation" data-cites="HAMM2012666">(<a href="#ref-HAMM2012666" role="doc-biblioref">Hamm, Atkinson, and Milton 2012</a>)</span> <span class="citation" data-cites="Thienrry">(<a href="#ref-Thienrry" role="doc-biblioref">Toutin 2011</a>)</span>, with the main goal of better batch processing of remote sensing data in complex environments.</p>
+</section>
+<section id="reflection" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="reflection"><span class="header-section-number">8.3</span> Reflection</h2>
+<p>There is no doubt that this lesson is a very important step in remote sensing. In GIS last semester I got uncorrected data and used it to draw a very bad graph (thanks to my friend for teaching me how to find the correct data!). It is foreseeable that these methods will be frequently used as a very basic part in future practice, just like writing literature review in an article. In addition, I have frequently used methods such as PCA in other courses, but I did not put them into practice in this course. I’d like to try them out later if I get the chance to see if there’s any difference between them and the apps in other classes (although I can’t quite tell the difference so far).</p>
+<p>But it’s very likely that the things that are taught in this lecture will only be used as tools and I won’t study them in depth. I looked at the papers I mentioned earlier, and to be honest, the results didn’t look very good, and although the authors used very complex models, they didn’t have as significant an impact on the results as I expected.</p>
+</section>
+<section id="references" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="references"><span class="header-section-number">8.4</span> References</h2>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-GHOLIZADEH2018240" class="csl-entry" role="listitem">
+Gholizadeh, Hamed, John A. Gamon, Arthur I. Zygielbaum, Ran Wang, Anna K. Schweiger, and Jeannine Cavender-Bares. 2018. <span>“Remote Sensing of Biodiversity: Soil Correction and Data Dimension Reduction Methods Improve Assessment of α-Diversity (Species Richness) in Prairie Ecosystems.”</span> <em>Remote Sensing of Environment</em> 206: 240–53. https://doi.org/<a href="https://doi.org/10.1016/j.rse.2017.12.014">https://doi.org/10.1016/j.rse.2017.12.014</a>.
+</div>
+<div id="ref-HAMM2012666" class="csl-entry" role="listitem">
+Hamm, N. A. S., P. M. Atkinson, and E. J. Milton. 2012. <span>“A Per-Pixel, Non-Stationary Mixed Model for Empirical Line Atmospheric Correction in Remote Sensing.”</span> <em>Remote Sensing of Environment</em> 124: 666–78. https://doi.org/<a href="https://doi.org/10.1016/j.rse.2012.05.033">https://doi.org/10.1016/j.rse.2012.05.033</a>.
+</div>
+<div id="ref-Huifang" class="csl-entry" role="listitem">
+Huifang Li, Huanfeng Shen, Xiaojing Wang, and Liangpei Zhang. 2016. <span>“An Efficient Multi-Resolution Variational Retinex Scheme for the Radiometric Correction of Airborne Remote Sensing Images.”</span> <em>International Journal of Remote Sensing</em> 37 (5): 1154–72. <a href="https://doi.org/10.1080/01431161.2016.1145364">https://doi.org/10.1080/01431161.2016.1145364</a>.
+</div>
+<div id="ref-Nitze2018" class="csl-entry" role="listitem">
+Nitze, Ingmar, Guido Grosse, Benjamin M. Jones, Vladimir E. Romanovsky, and Julia Boike. 2018. <span>“Remote Sensing Quantifies Widespread Abundance of Permafrost Region Disturbances Across the Arctic and Subarctic.”</span> <em>Nature Communications</em> 9 (1): 5423. <a href="https://doi.org/10.1038/s41467-018-07663-3">https://doi.org/10.1038/s41467-018-07663-3</a>.
+</div>
+<div id="ref-join" class="csl-entry" role="listitem">
+NV5 Geospatial Software. n.d. <span>“MosaicSeamless Documentation.”</span> <a href="https://www.nv5geospatialsoftware.com/docs/MosaicSeamless.html" class="uri">https://www.nv5geospatialsoftware.com/docs/MosaicSeamless.html</a>.
+</div>
+<div id="ref-Ouatiki2023" class="csl-entry" role="listitem">
+Ouatiki, H., A. Boudhar, and A. Chehbouni. 2023. <span>“Accuracy Assessment and Bias Correction of Remote Sensing–Based Rainfall Products over Semiarid Watersheds.”</span> <em>Theoretical and Applied Climatology</em> 154: 763–80. <a href="https://doi.org/10.1007/s00704-023-04586-y">https://doi.org/10.1007/s00704-023-04586-y</a>.
+</div>
+<div id="ref-Roujean1992" class="csl-entry" role="listitem">
+Roujean, Jean-Louis, Marc Leroy, and Pierre-Yves Deschamps. 1992. <span>“A Bidirectional Reflectance Model of the Earth’s Surface for the Correction of Remote Sensing Data.”</span> <em>Journal of Geophysical Research: Atmospheres</em> 97 (D18): 20455–68. <a href="https://doi.org/10.1029/92JD01411">https://doi.org/10.1029/92JD01411</a>.
+</div>
+<div id="ref-Thienrry" class="csl-entry" role="listitem">
+Toutin, Thierry. 2011. <span>“State-of-the-Art of Geometric Correction of Remote Sensing Data: A Data Fusion Perspective.”</span> <em>International Journal of Image and Data Fusion</em> 2 (1): 3–35. <a href="https://doi.org/10.1080/19479832.2010.539188">https://doi.org/10.1080/19479832.2010.539188</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -448,13 +580,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Week3.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data processing</span></span>
+      <a href="./Week8.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data processing</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Week6.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Google Earth Engine</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./intro.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">bibliography: references.bib</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

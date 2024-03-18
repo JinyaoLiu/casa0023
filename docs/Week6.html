@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>0023RS - 4&nbsp; Summary</title>
+<title>0023RS - 5&nbsp; Google Earth Engine</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -30,8 +49,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Week6.html" rel="next">
-<link href="./Week3.html" rel="prev">
+<link href="./Week7.html" rel="next">
+<link href="./Week4.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -74,7 +93,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Week4.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Summary</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Week6.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Google Earth Engine</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -125,13 +144,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Week4.html" class="sidebar-item-text sidebar-link active">
+  <a href="./Week4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Week6.html" class="sidebar-item-text sidebar-link">
+  <a href="./Week6.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Google Earth Engine</span></span></a>
   </div>
 </li>
@@ -175,8 +194,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#application" id="toc-application" class="nav-link active" data-scroll-target="#application"><span class="header-section-number">5</span> Application</a></li>
-  <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection"><span class="header-section-number">6</span> Reflection</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary"><span class="header-section-number">5.1</span> Summary</a>
+  <ul class="collapse">
+  <li><a href="#definition" id="toc-definition" class="nav-link" data-scroll-target="#definition"><span class="header-section-number">5.1.1</span> Definition</a></li>
+  <li><a href="#part-1-the-set-up-of-gee" id="toc-part-1-the-set-up-of-gee" class="nav-link" data-scroll-target="#part-1-the-set-up-of-gee"><span class="header-section-number">5.1.2</span> Part 1: The set up of GEE</a></li>
+  <li><a href="#part-2-gee-in-action" id="toc-part-2-gee-in-action" class="nav-link" data-scroll-target="#part-2-gee-in-action"><span class="header-section-number">5.1.3</span> Part 2: GEE in action</a></li>
+  </ul></li>
+  <li><a href="#application" id="toc-application" class="nav-link" data-scroll-target="#application"><span class="header-section-number">5.2</span> Application</a></li>
+  <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection"><span class="header-section-number">5.3</span> Reflection</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">5.4</span> References</a></li>
   </ul>
 </nav>
     </div>
@@ -185,7 +211,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Summary</span></h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Google Earth Engine</span></h1>
 </div>
 
 
@@ -200,16 +226,121 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Edinburgh, located in southeastern Scotland, is the capital city of Scotland. It follows the development characteristic of most English cities, which is to gradually expand based on the original Old Town and develop the New Town (although it is called New Town, it is more than three hundred years old). Today, the city of Edinburgh develops outwards with the old Town and the New town as the core, especially extending to the southwest since the barrier to northward expansion was the lake and encircling marsh. In economic terms, Edinburgh today is primarily a service provider and the second largest travel destination in the UK. At the same time, as can be seen from its published 2030 plan, the Edinburgh government hopes to develop its northern coastal natural resources for further development of tourism at this stage. It is worth mentioning that the tourism landscape development project in the north of the country has had a government-led development plan since 2000, but due to various problems such as the financial crisis and defamation charges, its planning has been continuously shelved, and has been replaced by another similar plan, but this plan is still in the initial stage of establishment, there is still a lot of room for development. In addition, another focus of the Edinburgh government is the establishment of the blue and green network of the city, which is expected to complete the establishment of the blue and green network of the entire city of Edinburgh by 2030 and achieve the goal of zero carbon emissions, so as to effectively mitigate its heat island effect.</p>
-<section id="application" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Application</h1>
-<p>If we want to get a deeper understanding of this kind of problem, you can consider some quantitative indicators related to remote sensing, which may include some data related to climate change, population activity, and land north of Edinburgh over the past few decades. For example, the impact of tourism on the heat island effect of Edinburgh, the change trend of environmental resources in the northern coastal areas, the expansion of urban area in the north of Edinburgh, the growth of population and even the change of its composition, as well as the transformation of some land uses may also reflect the problems it is currently facing. 根据以上信息可知，在未来几年中爱丁堡的环保型旅游项目很可能成为其所需要的重点项目，因此</p>
+<section id="summary" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="summary"><span class="header-section-number">5.1</span> Summary</h2>
+<section id="definition" class="level3" data-number="5.1.1">
+<h3 data-number="5.1.1" class="anchored" data-anchor-id="definition"><span class="header-section-number">5.1.1</span> Definition</h3>
+<ul>
+<li>Google Earth Engine: offer “Geospatial” processing service at scale, stores data on servers and takes the code written by prohrammer and applies it</li>
+<li>Image = raster, has bands</li>
+<li>Feature = vector, has geometry and attributes(dictionary of properties in GEE)</li>
+<li>ImageCollection = Image stack</li>
+<li>FeatureColletion = Feature stack(lots of polygons)</li>
+<li>Image scale: means pixel resolution in GEE, is <em>set by the output</em> not input.</li>
+</ul>
 </section>
-<section id="reflection" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> Reflection</h1>
-<p>This kind of research on a city’s policy is undoubtedly complicated, because it needs to consider many factors. To be honest, at the beginning I read a lot of literature but still didn’t know where to start. But from what I’ve written so far, it would be much easier to focus on just a small part of the city, especially if that part is a little more independent than the rest of the city.</p>
+<section id="part-1-the-set-up-of-gee" class="level3" data-number="5.1.2">
+<h3 data-number="5.1.2" class="anchored" data-anchor-id="part-1-the-set-up-of-gee"><span class="header-section-number">5.1.2</span> Part 1: The set up of GEE</h3>
+<p><big><strong>GEE basic operation</strong></big></p>
+<ul>
+<li>GEE use JavaScript</li>
+<li>Relating spatial data formats we have seen to GEE</li>
+<li>Scale(resolution)</li>
+<li>Run codes on both the client and server side</li>
+</ul>
+<p align="center">
+<img src="fig/week6/fig1.png" alt="Alt Text" width="400">
+</p>
+<p align="center">
+<em>map after scale</em>
+</p>
+</section>
+<section id="part-2-gee-in-action" class="level3" data-number="5.1.3">
+<h3 data-number="5.1.3" class="anchored" data-anchor-id="part-2-gee-in-action"><span class="header-section-number">5.1.3</span> Part 2: GEE in action</h3>
+<p align="center">
+<img src="fig/week6/fig2.png" alt="Alt Text" width="400">
+</p>
+<p align="center">
+<em>screen of GEE</em>
+</p>
+<p>A significant advantage of GEE compared to other software I am familiar with before is that it is very fast and does not require much computing resources (because it is an online website). Like GIS, GEE has a lot of objects(vector, raster, feature, string, number) belongs to different classes with specific GEE functions</p>
+<p>The remote sensing operations using R taught in CASA0005 GIS can basically be implemented in GEE, such as spatial operations (including join, partition statistics, filtering images or specific values) and some analysis methods (such as machine learning, classification, deep learning) and output some charts and applications. The specific code is too much not put here, you can see the ppt of this chapter or check the Internet.</p>
+</section>
+</section>
+<section id="application" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="application"><span class="header-section-number">5.2</span> Application</h2>
+<p>The Google Earth Engine (GEE) platform offers expanded possibilities for conducting earth observation research. Launched in late 2010, it grants access to a wealth of satellite and supplementary data, alongside cloud computing capabilities and processing algorithms designed to handle large datasets with ease. <span class="citation" data-cites="rs10101509">(<a href="#ref-rs10101509" role="doc-biblioref">Kumar and Mutanga 2018</a>)</span>Its extensive data archive encompasses information from various satellites, as well as vector datasets from Geographic Information Systems (GIS), social and demographic data, weather records, digital elevation models, and climate datasets. This resource empowers scientists, independent researchers, enthusiasts, and nations to delve into this extensive repository of information for tasks such as change detection, trend mapping, and resource quantification on Earth’s surface, surpassing previous capabilities. <span class="citation" data-cites="applicationgee">(<a href="#ref-applicationgee" role="doc-biblioref">Mutanga and Kumar 2019</a>)</span></p>
+<p align="center">
+<img src="fig/week6/fig3.png" alt="Alt Text" width="400">
+</p>
+<p align="right">
+<em>Resource from: <span class="citation" data-cites="PhamDuc2023">(<a href="#ref-PhamDuc2023" role="doc-biblioref">Pham-Duc et al. 2023</a>)</span></em>
+</p>
+<p align="center">
+<em>The fields of articles used GEE</em>
+</p>
+<p>Consequently, the platform’s popularity has surged, reflected in a sharp increase in the number of GEE-related articles, with nearly 85% of them being published within the last three years.<span class="citation" data-cites="PhamDuc2023">(<a href="#ref-PhamDuc2023" role="doc-biblioref">Pham-Duc et al. 2023</a>)</span></p>
+<p align="center">
+<img src="fig/week6/fig4.png" alt="Alt Text" width="400">
+</p>
+<p></p>
+<p align="right">
+<em>Resource from: <span class="citation" data-cites="PhamDuc2023">(<a href="#ref-PhamDuc2023" role="doc-biblioref">Pham-Duc et al. 2023</a>)</span></em>
+</p>
+<p align="center">
+<em>Articles published each year using GEE</em>
+</p>
+<p>In addition, by extracting the keywords of these words to make word clouds, it can be seen that the data observed by Landsat, Stneinel-1, MODIS and Sentinel-2 in GEE are widely used in the research.</p>
+<p align="center">
+<img src="fig/week6/fig5.png" alt="Alt Text" width="400">
+</p>
+<p></p>
+<p align="right">
+<em>Resource from: <span class="citation" data-cites="PhamDuc2023">(<a href="#ref-PhamDuc2023" role="doc-biblioref">Pham-Duc et al. 2023</a>)</span></em>
+</p>
+<p align="center">
+<em>World cloud</em>
+</p>
+<p>In the field of Earth and Planetary Science, I am very interested in land use analysis <span class="citation" data-cites="LULC">(<a href="#ref-LULC" role="doc-biblioref">Floreano and Moraes Luzia 2021</a>)</span>and crop production analysis<span class="citation" data-cites="VENKATAPPA2021148829">(<a href="#ref-VENKATAPPA2021148829" role="doc-biblioref">Venkatappa et al. 2021</a>)</span>, and the ideas of these two articles happen to be very similar. They all observe changes in the development of remote sensing data by using GEE to visualize it over different time periods, then consider the reasons for the changes, and then consider the impact of some particular event on their research objectives. For example, <span class="citation" data-cites="VENKATAPPA2021148829">Venkatappa et al. (<a href="#ref-VENKATAPPA2021148829" role="doc-biblioref">2021</a>)</span> considers the impact of drought and flood on crop production while <span class="citation" data-cites="LULC">Floreano and Moraes Luzia (<a href="#ref-LULC" role="doc-biblioref">2021</a>)</span> considers whether the promulgation of some policies has an impact on land use.</p>
+</section>
+<section id="reflection" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="reflection"><span class="header-section-number">5.3</span> Reflection</h2>
+<p>GEE is really a popular platform for remote sensing, probably due to the fact that its operating system is very simple and friendly to most people. Although I was prepared to find many articles before I looked up the application of GEE, the number of articles related to it still shocked me. What is even more shocking to me is that there is even a special category of articles on statistics and analysis of these GEE-related articles, and these articles are published almost every year. From discussing the potential and trend of GEE <span class="citation" data-cites="GORELICK201718 rs10101509">(<a href="#ref-GORELICK201718" role="doc-biblioref">Gorelick et al. 2017</a>; <a href="#ref-rs10101509" role="doc-biblioref">Kumar and Mutanga 2018</a>)</span> to systematically reviewing these texts nearly every year<span class="citation" data-cites="rs13183778 TAMIMINIA2020152">(<a href="#ref-rs13183778" role="doc-biblioref">Zhao et al. 2021</a>; <a href="#ref-TAMIMINIA2020152" role="doc-biblioref">Tamiminia et al. 2020</a>)</span>, and even considering the impact of major events such as covid-19<span class="citation" data-cites="PEREZCUTILLAS2023100907">(<a href="#ref-PEREZCUTILLAS2023100907" role="doc-biblioref">Pérez-Cutillas et al. 2023</a>)</span>, it can be seen that GEE has undoubtedly become a hot spot in remote sensing in recent years.</p>
+<p>What worried me was that I hadn’t worked with JavaScript before, and this week’s code, while seemingly basic, still took me a lot of time to understand and find bugs. It seems that GEE will still be needed in the next few weeks of the course, and hopefully I can learn more about JavaScript and how it is used in GEE in the future.</p>
+</section>
+<section id="references" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="references"><span class="header-section-number">5.4</span> References</h2>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-LULC" class="csl-entry" role="listitem">
+Floreano, Isabela X., and Alice F. de Moraes Luzia. 2021. <span>“Land Use/Land Cover (LULC) Analysis (2009–2019) with Google Earth Engine and 2030 Prediction Using Markov-CA in the Rondônia State, Brazil.”</span> <em>Environmental Monitoring and Assessment</em> 193 (4). <a href="https://www.proquest.com/scholarly-journals/land-use-cover-lulc-analysis-2009-2019-with/docview/2506944671/se-2">https://www.proquest.com/scholarly-journals/land-use-cover-lulc-analysis-2009-2019-with/docview/2506944671/se-2</a>.
+</div>
+<div id="ref-GORELICK201718" class="csl-entry" role="listitem">
+Gorelick, Noel, Matt Hancher, Mike Dixon, Simon Ilyushchenko, David Thau, and Rebecca Moore. 2017. <span>“Google Earth Engine: Planetary-Scale Geospatial Analysis for Everyone.”</span> <em>Remote Sensing of Environment</em> 202: 18–27. https://doi.org/<a href="https://doi.org/10.1016/j.rse.2017.06.031">https://doi.org/10.1016/j.rse.2017.06.031</a>.
+</div>
+<div id="ref-rs10101509" class="csl-entry" role="listitem">
+Kumar, Lalit, and Onisimo Mutanga. 2018. <span>“Google Earth Engine Applications Since Inception: Usage, Trends, and Potential.”</span> <em>Remote Sensing</em> 10 (10). <a href="https://doi.org/10.3390/rs10101509">https://doi.org/10.3390/rs10101509</a>.
+</div>
+<div id="ref-applicationgee" class="csl-entry" role="listitem">
+Mutanga, Onisimo, and Lalit Kumar. 2019. <span>“Google Earth Engine Applications.”</span> <em>Remote Sensing</em> 11 (5). <a href="https://www.proquest.com/scholarly-journals/google-earth-engine-applications/docview/2303995980/se-2">https://www.proquest.com/scholarly-journals/google-earth-engine-applications/docview/2303995980/se-2</a>.
+</div>
+<div id="ref-PEREZCUTILLAS2023100907" class="csl-entry" role="listitem">
+Pérez-Cutillas, Pedro, Alberto Pérez-Navarro, Carmelo Conesa-García, Demetrio Antonio Zema, and Jesús Pilar Amado-Álvarez. 2023. <span>“What Is Going on Within Google Earth Engine? A Systematic Review and Meta-Analysis.”</span> <em>Remote Sensing Applications: Society and Environment</em> 29: 100907. https://doi.org/<a href="https://doi.org/10.1016/j.rsase.2022.100907">https://doi.org/10.1016/j.rsase.2022.100907</a>.
+</div>
+<div id="ref-PhamDuc2023" class="csl-entry" role="listitem">
+Pham-Duc, B., H. Nguyen, H. Phan, and et al. 2023. <span>“Trends and Applications of Google Earth Engine in Remote Sensing and Earth Science Research: A Bibliometric Analysis Using Scopus Database.”</span> <em>Earth Science Informatics</em> 16: 2355–71. <a href="https://doi.org/10.1007/s12145-023-01035-2">https://doi.org/10.1007/s12145-023-01035-2</a>.
+</div>
+<div id="ref-TAMIMINIA2020152" class="csl-entry" role="listitem">
+Tamiminia, Haifa, Bahram Salehi, Masoud Mahdianpari, Lindi Quackenbush, Sarina Adeli, and Brian Brisco. 2020. <span>“Google Earth Engine for Geo-Big Data Applications: A Meta-Analysis and Systematic Review.”</span> <em>ISPRS Journal of Photogrammetry and Remote Sensing</em> 164: 152–70. https://doi.org/<a href="https://doi.org/10.1016/j.isprsjprs.2020.04.001">https://doi.org/10.1016/j.isprsjprs.2020.04.001</a>.
+</div>
+<div id="ref-VENKATAPPA2021148829" class="csl-entry" role="listitem">
+Venkatappa, Manjunatha, Nophea Sasaki, Phoumin Han, and Issei Abe. 2021. <span>“Impacts of Droughts and Floods on Croplands and Crop Production in Southeast Asia – an Application of Google Earth Engine.”</span> <em>Science of The Total Environment</em> 795: 148829. https://doi.org/<a href="https://doi.org/10.1016/j.scitotenv.2021.148829">https://doi.org/10.1016/j.scitotenv.2021.148829</a>.
+</div>
+<div id="ref-rs13183778" class="csl-entry" role="listitem">
+Zhao, Qiang, Le Yu, Xuecao Li, Dailiang Peng, Yongguang Zhang, and Peng Gong. 2021. <span>“Progress and Trends in the Application of Google Earth and Google Earth Engine.”</span> <em>Remote Sensing</em> 13 (18). <a href="https://doi.org/10.3390/rs13183778">https://doi.org/10.3390/rs13183778</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -448,13 +579,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Week3.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data processing</span></span>
+      <a href="./Week4.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Summary</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Week6.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Google Earth Engine</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Week7.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data processing</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
