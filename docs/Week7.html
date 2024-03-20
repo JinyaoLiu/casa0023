@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>0023RS - 6&nbsp; Data processing</title>
+<title>0023RS - 6&nbsp; Classification I</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -95,7 +95,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Week7.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data processing</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Week7.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Classification I</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -159,7 +159,7 @@ div.csl-indent {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Week7.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data processing</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Classification I</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -199,8 +199,8 @@ div.csl-indent {
   <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary"><span class="header-section-number">6.1</span> Summary</a>
   <ul class="collapse">
   <li><a href="#definition" id="toc-definition" class="nav-link" data-scroll-target="#definition"><span class="header-section-number">6.1.1</span> Definition</a></li>
-  <li><a href="#part-1-corrections" id="toc-part-1-corrections" class="nav-link" data-scroll-target="#part-1-corrections"><span class="header-section-number">6.1.2</span> Part 1: Corrections</a></li>
-  <li><a href="#part-2-data-joining-and-enhancement" id="toc-part-2-data-joining-and-enhancement" class="nav-link" data-scroll-target="#part-2-data-joining-and-enhancement"><span class="header-section-number">6.1.3</span> Part 2: Data joining and enhancement</a></li>
+  <li><a href="#part-1-review-of-how-classified-data-is-used" id="toc-part-1-review-of-how-classified-data-is-used" class="nav-link" data-scroll-target="#part-1-review-of-how-classified-data-is-used"><span class="header-section-number">6.1.2</span> Part 1: Review of how classified data is used</a></li>
+  <li><a href="#part-2-how-to-classify-remotely-sensed-data" id="toc-part-2-how-to-classify-remotely-sensed-data" class="nav-link" data-scroll-target="#part-2-how-to-classify-remotely-sensed-data"><span class="header-section-number">6.1.3</span> Part 2: How to classify remotely sensed data</a></li>
   </ul></li>
   <li><a href="#application" id="toc-application" class="nav-link" data-scroll-target="#application"><span class="header-section-number">6.2</span> Application</a></li>
   <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection"><span class="header-section-number">6.3</span> Reflection</a></li>
@@ -213,7 +213,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data processing</span></h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Classification I</span></h1>
 </div>
 
 
@@ -232,114 +232,181 @@ div.csl-indent {
 <h2 data-number="6.1" class="anchored" data-anchor-id="summary"><span class="header-section-number">6.1</span> Summary</h2>
 <section id="definition" class="level3" data-number="6.1.1">
 <h3 data-number="6.1.1" class="anchored" data-anchor-id="definition"><span class="header-section-number">6.1.1</span> Definition</h3>
+<p>PRODES and DETER = annual data or 250m resolution</p>
+<p>Feature space = scattergram of two bands (or things that have been made into bands)</p>
+<p>inductive learning = given context we can use experience to make judgement</p>
+<p>In expert system:</p>
 <ul>
-<li><p>Radiance, refers to any radiation leaving the Earth (i.e.&nbsp;upwelling, toward the sensor.</p></li>
-<li><p>Irradiance, is used to describe downwelling radiation reaching the Earth from the sun.</p></li>
-<li><p>Digital number(DN)(0-255 for 8 bit ot 0-65536 for 12 bit): Intensity of the electromagnetic radiation per pixel.</p></li>
-<li><p>Reflectance: a property of a material, typically surface reflectance(bottom of atmosphere) but also can be top of atmosphere reflectance.</p></li>
-<li><p>Hemispherical reflectance: All of the light leaving the surface goes straight to the sensor (nothing is intercepted or at an angle)</p></li>
-<li><p>Apparent reflectance(reflectance): create reflectance accounting for atmospheric and illumination effects. BUT this typically doesn’t deal with shadows and directional effects (e.g.&nbsp;viewing angles)</p></li>
-<li><p>Mosaicking (similar to merging in GIS): feather the images together to create a seamless mosaic or images.</p></li>
-<li><p>Seamline: The dividing line.</p></li>
+<li><p>Knowledge Base = Rules of thumb, not always correct</p></li>
+<li><p>Inference Engine = Process of reaching a conclusion and the expert system is implemented</p></li>
+</ul>
+<p>In machine learning:</p>
+<ul>
+<li>Machine learning = science of computer modeling of learning process</li>
+<li>Algorithmic approach = code to solve a solution</li>
+</ul>
+<p>In classification and regression tree:</p>
+<ul>
+<li>Overfitting = leaf with just one person or one pixel value</li>
+<li>Bias = difference between predicted value and true value, means the model is oversimplified</li>
+<li>Variance = variability of model for a given point, if it’s large than means the model does not genearlise well</li>
+<li>Pattern vector = all the band values per pixel (could include texture etc)</li>
 </ul>
 </section>
-<section id="part-1-corrections" class="level3" data-number="6.1.2">
-<h3 data-number="6.1.2" class="anchored" data-anchor-id="part-1-corrections"><span class="header-section-number">6.1.2</span> Part 1: Corrections</h3>
-<p>To deal with the flaws in remotely sensed images, several steps are used to correct them.</p>
-<p align="center">
-<img src="fig/week3/correction.png" alt="Alt Text" width="600">
-</p>
-<p align="center">
-<em>Corrections for different problem</em>
-</p>
-<p><big><strong>Geometric correction</strong></big></p>
-<p align="center">
-<img src="fig/week3/fig1.png" alt="Alt Text" width="300">
-</p>
-<p align="center">
-<em>Visualization of geometric correction</em>
-</p>
-<p><strong>Step 1:</strong> model coordinates to give geometric transformation coefficients.<br>
-<strong>Step 2:</strong> use distorted x or y as the dependent or independent for linear regression.<br>
-<span class="math display">\[
-\left\{\begin{matrix}
-x = a_{0} + a_{1}x^{i} + a_2y^i + \epsilon_i \\
-y = b_{0} + b_{1}x^{i} + b_2y^i + \epsilon_i
-\end{matrix}\right.
-\]</span> from positions in original image(<span class="math inline">\(x^i\)</span> and <span class="math inline">\(y^i\)</span>) to rectified map(<span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>).<br>
-</p>
-<p><strong>Step 3:</strong> minimize the RMSE.</p>
-<p><big><strong>Atmospheric correction</strong></big></p>
-<p align="center">
-<img src="fig/week3/fig3.png" alt="Alt Text" width="300">
-</p>
-<p align="center">
-<em>Comparison before and after atmospheric correction</em>
-</p>
+<section id="part-1-review-of-how-classified-data-is-used" class="level3" data-number="6.1.2">
+<h3 data-number="6.1.2" class="anchored" data-anchor-id="part-1-review-of-how-classified-data-is-used"><span class="header-section-number">6.1.2</span> Part 1: Review of how classified data is used</h3>
+<table class="table">
+<colgroup>
+<col style="width: 56%">
+<col style="width: 43%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">problems</th>
+<th style="text-align: center;">sensors</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">urban expansion</td>
+<td style="text-align: center;">Landsat</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Air pollution and LULC</td>
+<td style="text-align: center;">Sentinel-3 &amp; Sentinel-5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Urban green spaces</td>
+<td style="text-align: center;">Different sensors used for different mapping purposes, but can be mixed</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Monitoring forests + illegal logging</td>
+<td style="text-align: center;">Landsat (2000 to 2012)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Forest fires</td>
+<td style="text-align: center;">Landsat TM 1984</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="part-2-data-joining-and-enhancement" class="level3" data-number="6.1.3">
-<h3 data-number="6.1.3" class="anchored" data-anchor-id="part-2-data-joining-and-enhancement"><span class="header-section-number">6.1.3</span> Part 2: Data joining and enhancement</h3>
-<section id="joining" class="level4" data-number="6.1.3.1">
-<h4 data-number="6.1.3.1" class="anchored" data-anchor-id="joining"><span class="header-section-number">6.1.3.1</span> Joining</h4>
+<section id="part-2-how-to-classify-remotely-sensed-data" class="level3" data-number="6.1.3">
+<h3 data-number="6.1.3" class="anchored" data-anchor-id="part-2-how-to-classify-remotely-sensed-data"><span class="header-section-number">6.1.3</span> Part 2: How to classify remotely sensed data</h3>
+<p><big><strong>Past: Expert System</strong></big></p>
 <p align="center">
-<img src="fig/week3/fig2.png" alt="Alt Text" width="400">
+</p><p><img src="fig/week7/fig1.png" alt="Alt Text" width="300"></p>
+<p></p>
+<p align="right">
+<span class="citation" data-cites="QuoraKnowledgeBasedSystem">(<a href="#ref-QuoraKnowledgeBasedSystem" role="doc-biblioref">Quora 2016</a>)</span>
 </p>
-<p align="center">
-<em>How to join</em>
-</p>
-<p><span class="citation" data-cites="join">(<a href="#ref-join" role="doc-biblioref">NV5 Geospatial Software, n.d.</a>)</span></p>
-</section>
-<section id="image-enhenrence" class="level4" data-number="6.1.3.2">
-<h4 data-number="6.1.3.2" class="anchored" data-anchor-id="image-enhenrence"><span class="header-section-number">6.1.3.2</span> Image enhenrence</h4>
+<p><big><strong>Now: Machine Learning</strong></big></p>
+<p>A search through all the data to explain the input data and can be used on new input data.</p>
+<p><strong>Classification and regression trees (CART)</strong></p>
+<span class="math display">\[\begin{cases}
+  &amp; \text{dicision tree: classify data into two or more discrete categories } \\
+  &amp; \text{regression trees: predict continuous dependent variable }
+\end{cases}\]</span>
+<p>In a regression tree, if the result does not conform to linear regression, we can divide it into parts based on the threshold and calculate the sum of residuals squares, then use the best sum of residuals squares for all variables as roots and different values as leaves.</p>
+<p>However, in practical applications, leaves may be discrete and continuous mixed together, so we use gini impurity to treat them so that they can be combined for identification.</p>
+<p><strong>Overfitting</strong></p>
+<p>But sometimes, the model may facing the problem called overfitting:</p>
+<p><span class="math display">\[
+\text{best model}
+\begin{cases}
+  &amp; \text{low bias = model the real relationship} \\
+  &amp; \text{low variability = consistent predictions between datasets}
+\end{cases}
+\]</span></p>
+<p>The solution to this problem:</p>
 <ul>
-<li><p>Contrast Enhancement: expand the range of image band using</p>
+<li><p>Limit how trees grow (e.g.&nbsp;a minimum number of pixels in a leaf, 20 is often used)</p></li>
+<li><p>Weakest link pruning (with tree score):</p>
 <ul>
-<li>Minimum-Maximum</li>
-<li>Percentage Linear and Standard Deviation</li>
-<li>Piecewise Linear Contrast Stretch</li>
+<li>use one less leaf, remove a leaf = sub-tree, SSR will get larger = termed PRUNING or cost complexity pruning</li>
+<li>Sum for the tree</li>
+<li>Tree score = SSR + tree penalty (alpha) * T (number of leaves)…lower better..</li>
 </ul></li>
 </ul>
-</section>
+<p><strong>Random forest</strong> - Many better than one(Grow many classification decision trees)</p>
+<ul>
+<li>Use many trees, have each tree give a result, and then vote on the result</li>
+<li>Bootstrapping (re-sampling by replacement data to make a decision = bagging</li>
+<li>For each tree about 70% of the training data is used in the bootstrap, 30% is left out of the bag (OOB)</li>
+</ul>
+<p><strong>Maximum likelihood</strong></p>
+<p>Use probability to classify, it’s the data based with most probably to have the values in our pixel</p>
+<p><strong>Support Vector Machine (SVM)</strong></p>
+<p>A linear binary classifier - like logistic regression.</p>
+<p>It finds the divide in the data (e.g.&nbsp;classes) and places a line at the division from the closest points.</p>
+<p><big><strong>Apply to imagery</strong></big></p>
+<span class="math display">\[\begin{cases}
+  &amp; \text{Supervised: Put known label onto new data(e.g. machine learning)} \\
+  &amp; \text{Unsupervised: Categorize data with labels that are not known in advance(e.g. k-means)}
+\end{cases}\]</span>
 </section>
 </section>
 <section id="application" class="level2" data-number="6.2">
 <h2 data-number="6.2" class="anchored" data-anchor-id="application"><span class="header-section-number">6.2</span> Application</h2>
-<p>According to the articles I have looked up so far, the correction technology of remote sensing has been relatively mature and widely used in various places (although it is more used for data processing before main analysis rather than see correction as a main discussion topic). For example, <span class="citation" data-cites="GHOLIZADEH2018240">Gholizadeh et al. (<a href="#ref-GHOLIZADEH2018240" role="doc-biblioref">2018</a>)</span> mainly studied the relationship between soil environment and species diversity through remote sensing data, but adopted many correction methods and PCA dimensionality reduction technology to conduct preliminary processing of remote sensing data.</p>
-<p>But in the cutting-edge research, calibration still has its room for progress, it seems that the continued study of calibration technology is mainly reflected in two parts. One is to consider the correction in different natural environments, such as polar<span class="citation" data-cites="Nitze2018">(<a href="#ref-Nitze2018" role="doc-biblioref">Nitze et al. 2018</a>)</span> and desert <span class="citation" data-cites="Ouatiki2023">(<a href="#ref-Ouatiki2023" role="doc-biblioref">Ouatiki, Boudhar, and Chehbouni 2023</a>)</span> regions, the main goal of which is to make the application of remote sensing technology in extreme areas more stable and reliable. The other is to try to build more advanced models, which may be mainly combined with time series <span class="citation" data-cites="Roujean1992">(<a href="#ref-Roujean1992" role="doc-biblioref">Roujean, Leroy, and Deschamps 1992</a>)</span>, machine learning <span class="citation" data-cites="Huifang">(<a href="#ref-Huifang" role="doc-biblioref">Huifang Li and Zhang 2016</a>)</span> or data fusion <span class="citation" data-cites="HAMM2012666">(<a href="#ref-HAMM2012666" role="doc-biblioref">Hamm, Atkinson, and Milton 2012</a>)</span> <span class="citation" data-cites="Thienrry">(<a href="#ref-Thienrry" role="doc-biblioref">Toutin 2011</a>)</span>, with the main goal of better batch processing of remote sensing data in complex environments.</p>
+<p>At present, classifier-related technologies have been widely used in image recognition in remote sensing. Considering only the application of land cover, there are many articles, which seem to be mainly divided into two categories, on the one hand, plaints cover<span class="citation" data-cites="John STOJANOVA2010256">(<a href="#ref-John" role="doc-biblioref">John Nay and Gilligan 2018</a>; <a href="#ref-STOJANOVA2010256" role="doc-biblioref">Stojanova et al. 2010</a>)</span>, and on the other hand, remote sensing images of urban space<span class="citation" data-cites="Ding">(<a href="#ref-Ding" role="doc-biblioref">Ding et al. 2022</a>)</span>.</p>
+<p>Looking at the articles related to this, it can be seen that the development history of its entire discipline is roughly as follows:</p>
+<p>When the remote sensing related to classifiers was just becoming popular, around the end of last century and the beginning of this century, researchers began to try to combine the two fields, such as <span class="citation" data-cites="6425391">Crawford, Tuia, and Yang (<a href="#ref-6425391" role="doc-biblioref">2013</a>)</span> using SVM and <span class="citation" data-cites="FRIEDL1997399">Friedl and Brodley (<a href="#ref-FRIEDL1997399" role="doc-biblioref">1997</a>)</span> using decision tree to process remote sensing images, and these papers generally focused on how to clean the initial data and model training, that is, the most basic model building and analysis process.</p>
+<p>Later, as more and more people pay attention to this field, more authors begin to compare the processing effects of different machine learning methods and try to put forward suggestions for improvement. In <span class="citation" data-cites="rs13030368">Ramezan et al. (<a href="#ref-rs13030368" role="doc-biblioref">2021</a>)</span>’s article, random forest was a good classifier for large-area land-cover classifications, while <span class="citation" data-cites="park2021assessment">Park et al. (<a href="#ref-park2021assessment" role="doc-biblioref">2021</a>)</span> thinks XGBoost is a better model.</p>
+<p>In recent years, deep learning has attracted the attention of scholars in this direction. The most basic CNN convolution<span class="citation" data-cites="9140372">(<a href="#ref-9140372" role="doc-biblioref">Kang et al. 2021</a>)</span>, JDR based on CNN and MLP<span class="citation" data-cites="ZHANG2019173">(<a href="#ref-ZHANG2019173" role="doc-biblioref">Zhang et al. 2019</a>)</span>, DBN <span class="citation" data-cites="Lv">(<a href="#ref-Lv" role="doc-biblioref">Lv et al. 2015</a>)</span>and other models have been considered and optimized in this direction. In fact, the results of these models are generally better than traditional machine learning.</p>
 </section>
 <section id="reflection" class="level2" data-number="6.3">
 <h2 data-number="6.3" class="anchored" data-anchor-id="reflection"><span class="header-section-number">6.3</span> Reflection</h2>
-<p>There is no doubt that this lesson is a very important step in remote sensing. In GIS last semester I got uncorrected data and used it to draw a very bad graph (thanks to my friend for teaching me how to find the correct data!). It is foreseeable that these methods will be frequently used as a very basic part in future practice, just like writing literature review in an article. In addition, I have frequently used methods such as PCA in other courses, but I did not put them into practice in this course. I’d like to try them out later if I get the chance to see if there’s any difference between them and the apps in other classes (although I can’t quite tell the difference so far).</p>
-<p>But it’s very likely that the things that are taught in this lecture will only be used as tools and I won’t study them in depth. I looked at the papers I mentioned earlier, and to be honest, the results didn’t look very good, and although the authors used very complex models, they didn’t have as significant an impact on the results as I expected.</p>
+There is no doubt that the use of machine learning to distinguish remote sensing images is undoubtedly a very important part of remote sensing. Unfortunately, it seems that the problem related to deep learning was not mentioned in the lecture, although it is a hot topic in recent years. Among the research fields I mentioned before, I am most interested in the research topic of <span class="citation" data-cites="Ding">Ding et al. (<a href="#ref-Ding" role="doc-biblioref">2022</a>)</span>. Through the analysis of remote sensing images in different periods, they clearly reflect the relationship between natural environment and urban expansion, which is undoubtedly one of the important roles of remote sensing in urban analysis.
+<p align="center">
+</p><p><img src="fig/week7/fig2.png" alt="Alt Text" width="500"></p>
+<p></p>
+<p align="center">
+<em>The land cover maps in Shenzhen from 1979 to 2022.</em>
+</p>
+<p>In addition, this paper also reflects the relationship between different areas within the city through remote sensing images, and this discussion of taking into account social development and natural environment is, in my opinion, the mainstream direction in the coming decades.</p>
+<p align="center">
+</p><p><img src="fig/week7/fig3.png" alt="Alt Text" width="700"></p>
+<p></p>
+<p align="center">
+<em>The relationship between transportation and urban land increase from 1979 to 2022. (a)The road network overland on the map of urban land expansion. (b) The transportation distance histogram for urban land increase.</em>
+</p>
 </section>
 <section id="references" class="level2" data-number="6.4">
 <h2 data-number="6.4" class="anchored" data-anchor-id="references"><span class="header-section-number">6.4</span> References</h2>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
-<div id="ref-GHOLIZADEH2018240" class="csl-entry" role="listitem">
-Gholizadeh, Hamed, John A. Gamon, Arthur I. Zygielbaum, Ran Wang, Anna K. Schweiger, and Jeannine Cavender-Bares. 2018. <span>“Remote Sensing of Biodiversity: Soil Correction and Data Dimension Reduction Methods Improve Assessment of α-Diversity (Species Richness) in Prairie Ecosystems.”</span> <em>Remote Sensing of Environment</em> 206: 240–53. https://doi.org/<a href="https://doi.org/10.1016/j.rse.2017.12.014">https://doi.org/10.1016/j.rse.2017.12.014</a>.
+<div id="ref-6425391" class="csl-entry" role="listitem">
+Crawford, Melba M., Devis Tuia, and Hsiuhan Lexie Yang. 2013. <span>“Active Learning: Any Value for Classification of Remotely Sensed Data?”</span> <em>Proceedings of the IEEE</em> 101 (3): 593–608. <a href="https://doi.org/10.1109/JPROC.2012.2231951">https://doi.org/10.1109/JPROC.2012.2231951</a>.
 </div>
-<div id="ref-HAMM2012666" class="csl-entry" role="listitem">
-Hamm, N. A. S., P. M. Atkinson, and E. J. Milton. 2012. <span>“A Per-Pixel, Non-Stationary Mixed Model for Empirical Line Atmospheric Correction in Remote Sensing.”</span> <em>Remote Sensing of Environment</em> 124: 666–78. https://doi.org/<a href="https://doi.org/10.1016/j.rse.2012.05.033">https://doi.org/10.1016/j.rse.2012.05.033</a>.
+<div id="ref-Ding" class="csl-entry" role="listitem">
+Ding, Kai, Yidu Huang, Chisheng Wang, Qingquan Li, Chao Yang, Fang Xu, Ming Tao, Renping Xie, and Ming Dai. 2022. <span>“Time Series Analysis of Land Cover Change Using Remotely Sensed and Multisource Urban Data Based on Machine Learning: A Case Study of Shenzhen, China from 1979 to 2022.”</span> <em>Remote Sensing</em> 14 (22): 5706. <a href="https://www-proquest-com.libproxy.ucl.ac.uk/scholarly-journals/time-series-analysis-land-cover-change-using/docview/2739456190/se-2">https://www-proquest-com.libproxy.ucl.ac.uk/scholarly-journals/time-series-analysis-land-cover-change-using/docview/2739456190/se-2</a>.
 </div>
-<div id="ref-Huifang" class="csl-entry" role="listitem">
-Huifang Li, Huanfeng Shen, Xiaojing Wang, and Liangpei Zhang. 2016. <span>“An Efficient Multi-Resolution Variational Retinex Scheme for the Radiometric Correction of Airborne Remote Sensing Images.”</span> <em>International Journal of Remote Sensing</em> 37 (5): 1154–72. <a href="https://doi.org/10.1080/01431161.2016.1145364">https://doi.org/10.1080/01431161.2016.1145364</a>.
+<div id="ref-FRIEDL1997399" class="csl-entry" role="listitem">
+Friedl, M. A., and C. E. Brodley. 1997. <span>“Decision Tree Classification of Land Cover from Remotely Sensed Data.”</span> <em>Remote Sensing of Environment</em> 61 (3): 399–409. https://doi.org/<a href="https://doi.org/10.1016/S0034-4257(97)00049-7">https://doi.org/10.1016/S0034-4257(97)00049-7</a>.
 </div>
-<div id="ref-Nitze2018" class="csl-entry" role="listitem">
-Nitze, Ingmar, Guido Grosse, Benjamin M. Jones, Vladimir E. Romanovsky, and Julia Boike. 2018. <span>“Remote Sensing Quantifies Widespread Abundance of Permafrost Region Disturbances Across the Arctic and Subarctic.”</span> <em>Nature Communications</em> 9 (1): 5423. <a href="https://doi.org/10.1038/s41467-018-07663-3">https://doi.org/10.1038/s41467-018-07663-3</a>.
+<div id="ref-John" class="csl-entry" role="listitem">
+John Nay, Emily Burchfield, and Jonathan Gilligan. 2018. <span>“A Machine-Learning Approach to Forecasting Remotely Sensed Vegetation Health.”</span> <em>International Journal of Remote Sensing</em> 39 (6): 1800–1816. <a href="https://doi.org/10.1080/01431161.2017.1410296">https://doi.org/10.1080/01431161.2017.1410296</a>.
 </div>
-<div id="ref-join" class="csl-entry" role="listitem">
-NV5 Geospatial Software. n.d. <span>“MosaicSeamless Documentation.”</span> <a href="https://www.nv5geospatialsoftware.com/docs/MosaicSeamless.html" class="uri">https://www.nv5geospatialsoftware.com/docs/MosaicSeamless.html</a>.
+<div id="ref-9140372" class="csl-entry" role="listitem">
+Kang, Jian, Ruben Fernandez-Beltran, Puhong Duan, Sicong Liu, and Antonio J. Plaza. 2021. <span>“Deep Unsupervised Embedding for Remotely Sensed Images Based on Spatially Augmented Momentum Contrast.”</span> <em>IEEE Transactions on Geoscience and Remote Sensing</em> 59 (3): 2598–2610. <a href="https://doi.org/10.1109/TGRS.2020.3007029">https://doi.org/10.1109/TGRS.2020.3007029</a>.
 </div>
-<div id="ref-Ouatiki2023" class="csl-entry" role="listitem">
-Ouatiki, H., A. Boudhar, and A. Chehbouni. 2023. <span>“Accuracy Assessment and Bias Correction of Remote Sensing–Based Rainfall Products over Semiarid Watersheds.”</span> <em>Theoretical and Applied Climatology</em> 154: 763–80. <a href="https://doi.org/10.1007/s00704-023-04586-y">https://doi.org/10.1007/s00704-023-04586-y</a>.
+<div id="ref-Lv" class="csl-entry" role="listitem">
+Lv, Qi, Yong Dou, Xin Niu, Jiaqing Xu, Jinbo Xu, and Fei Xia. 2015. <span>“Urban Land Use and Land Cover Classification Using Remotely Sensed SAR Data Through Deep Belief Networks.”</span> <em>Journal of Sensors</em> 2015. <a href="https://www-proquest-com.libproxy.ucl.ac.uk/scholarly-journals/urban-land-use-cover-classification-using/docview/1702625853/se-2">https://www-proquest-com.libproxy.ucl.ac.uk/scholarly-journals/urban-land-use-cover-classification-using/docview/1702625853/se-2</a>.
 </div>
-<div id="ref-Roujean1992" class="csl-entry" role="listitem">
-Roujean, Jean-Louis, Marc Leroy, and Pierre-Yves Deschamps. 1992. <span>“A Bidirectional Reflectance Model of the Earth’s Surface for the Correction of Remote Sensing Data.”</span> <em>Journal of Geophysical Research: Atmospheres</em> 97 (D18): 20455–68. <a href="https://doi.org/10.1029/92JD01411">https://doi.org/10.1029/92JD01411</a>.
+<div id="ref-park2021assessment" class="csl-entry" role="listitem">
+Park, J. et al. 2021. <span>“Assessment of Machine Learning Algorithms for Land Cover Classification Using Remotely Sensed Data.”</span> <em>Sensors and Materials</em> 33 (11): 3885–3902. <a href="https://www.jstage.jst.go.jp/article/sensmat/33/11/33_3885/_article">https://www.jstage.jst.go.jp/article/sensmat/33/11/33_3885/_article</a>.
 </div>
-<div id="ref-Thienrry" class="csl-entry" role="listitem">
-Toutin, Thierry. 2011. <span>“State-of-the-Art of Geometric Correction of Remote Sensing Data: A Data Fusion Perspective.”</span> <em>International Journal of Image and Data Fusion</em> 2 (1): 3–35. <a href="https://doi.org/10.1080/19479832.2010.539188">https://doi.org/10.1080/19479832.2010.539188</a>.
+<div id="ref-QuoraKnowledgeBasedSystem" class="csl-entry" role="listitem">
+Quora. 2016. <span>“What Is a Knowledge-Based System in the Context of Artificial Intelligence?”</span> <a href="https://www.quora.com/What-is-a-knowledge-based-system-in-the-context-of-artificial-intelligence" class="uri">https://www.quora.com/What-is-a-knowledge-based-system-in-the-context-of-artificial-intelligence</a>.
+</div>
+<div id="ref-rs13030368" class="csl-entry" role="listitem">
+Ramezan, Christopher A., Timothy A. Warner, Aaron E. Maxwell, and Bradley S. Price. 2021. <span>“Effects of Training Set Size on Supervised Machine-Learning Land-Cover Classification of Large-Area High-Resolution Remotely Sensed Data.”</span> <em>Remote Sensing</em> 13 (3). <a href="https://doi.org/10.3390/rs13030368">https://doi.org/10.3390/rs13030368</a>.
+</div>
+<div id="ref-STOJANOVA2010256" class="csl-entry" role="listitem">
+Stojanova, Daniela, Panče Panov, Valentin Gjorgjioski, Andrej Kobler, and Sašo Džeroski. 2010. <span>“Estimating Vegetation Height and Canopy Cover from Remotely Sensed Data with Machine Learning.”</span> <em>Ecological Informatics</em> 5 (4): 256–66. https://doi.org/<a href="https://doi.org/10.1016/j.ecoinf.2010.03.004">https://doi.org/10.1016/j.ecoinf.2010.03.004</a>.
+</div>
+<div id="ref-ZHANG2019173" class="csl-entry" role="listitem">
+Zhang, Ce, Isabel Sargent, Xin Pan, Huapeng Li, Andy Gardiner, Jonathon Hare, and Peter M. Atkinson. 2019. <span>“Joint Deep Learning for Land Cover and Land Use Classification.”</span> <em>Remote Sensing of Environment</em> 221: 173–87. https://doi.org/<a href="https://doi.org/10.1016/j.rse.2018.11.014">https://doi.org/10.1016/j.rse.2018.11.014</a>.
 </div>
 </div>
 </section>

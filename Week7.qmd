@@ -1,109 +1,163 @@
 ---
-title: "Data processing"
-
+title: "Classification I"
 ---
 
 ## Summary
 
 ### Definition
 
-* Radiance, refers to any radiation leaving the Earth (i.e. upwelling, toward the sensor.
+PRODES and DETER = annual data or 250m resolution
 
-* Irradiance, is used to describe downwelling radiation reaching the Earth from the sun.
+Feature space = scattergram of two bands (or things that have been made into bands)
 
-* Digital number(DN)(0-255 for 8 bit ot 0-65536 for 12 bit): Intensity of the electromagnetic radiation per pixel.
+inductive learning = given context we can use experience to make judgement
 
-* Reflectance: a property of a material, typically surface reflectance(bottom of atmosphere) but also can be top of atmosphere reflectance.
+In expert system: 
 
-* Hemispherical reflectance: All of the light leaving the surface goes straight to the sensor (nothing is intercepted or at an angle)
+  - Knowledge Base = Rules of thumb, not always correct
 
-* Apparent reflectance(reflectance): create reflectance accounting for atmospheric and illumination effects. BUT this typically doesn't deal with shadows and directional effects (e.g. viewing angles)
+  - Inference Engine = Process of reaching a conclusion and the expert system is implemented
 
-* Mosaicking (similar to merging in GIS): feather the images together to create a seamless mosaic or images.
+In machine learning: 
 
-* Seamline: The dividing line.
-
-### Part 1: Corrections
-
-To deal with the flaws in remotely sensed images, several steps are used to correct them.
-
-<p align="center">
-  <img src="fig/week3/correction.png" alt="Alt Text" width="600"/>
-</p>
-<p align="center">
-  *Corrections for different problem*
-</p>
-
-<big>**Geometric correction**</big> 
-
-<p align="center">
-  <img src="fig/week3/fig1.png" alt="Alt Text" width="300"/>
-</p>
-<p align="center">
-  *Visualization of geometric correction*
-</p>
-
- 
-**Step 1:** model coordinates to give geometric transformation coefficients.\
-**Step 2:** use distorted x or y as the dependent or independent for linear regression.\
-$$
-\left\{\begin{matrix}
- x = a_{0} + a_{1}x^{i} + a_2y^i + \epsilon_i \\ 
- y = b_{0} + b_{1}x^{i} + b_2y^i + \epsilon_i 
-\end{matrix}\right.
-$$
-from positions in original image($x^i$ and $y^i$) to rectified map($x$ and $y$). \
-
-
-**Step 3:** minimize the RMSE.
-
-<big>**Atmospheric correction**</big>
-
-<p align="center">
-  <img src="fig/week3/fig3.png" alt="Alt Text" width="300"/>
-</p>
-<p align="center">
-  *Comparison before and after atmospheric correction* 
-</p>
+  - Machine learning = science of computer modeling of learning process
+  - Algorithmic approach = code to solve a solution
   
+In classification and regression tree:
+  
+  -  Overfitting = leaf with just one person or one pixel value
+  -  Bias = difference between predicted value and true value, means the model is oversimplified
+  -  Variance = variability of model for a given point, if it's large than means the model does not genearlise well
+  - Pattern vector = all the band values per pixel (could include texture etc)
 
 
-### Part 2: Data joining and enhancement
+### Part 1: Review of how classified data is used
 
-#### Joining
+|                 problems                 |             sensors             |
+|:---------------------------------------:|:------------------------------:|
+|          urban expansion           | Landsat |
+|         Air pollution and LULC     |      Sentinel-3 & Sentinel-5     |
+| Urban green spaces |    Different sensors used for different mapping purposes, but can be mixed      |
+|     Monitoring forests + illegal logging    |  Landsat (2000 to 2012)            |
+|   Forest fires  |      Landsat TM 1984      |
+
+
+
+### Part 2: How to classify remotely sensed data
+
+<big>**Past: Expert System**</big>
 
 <p align="center">
-  <img src="fig/week3/fig2.png" alt="Alt Text" width="400"/>
+
+<img src="fig/week7/fig1.png" alt="Alt Text" width="300"/>
+
 </p>
-<p align="center">
-  *How to join* 
+
+<p align="right">
+[@QuoraKnowledgeBasedSystem]
 </p>
 
-[@join]
+<big>**Now: Machine Learning**</big>
+
+A search through all the data to explain the input data and can be used on new input data.
+
+**Classification and regression trees (CART)**
 
 
-#### Image enhenrence
+\begin{cases}
+  & \text{dicision tree: classify data into two or more discrete categories } \\
+  & \text{regression trees: predict continuous dependent variable }
+\end{cases}
 
-* Contrast Enhancement: expand the range of image band using
 
-  * Minimum-Maximum
-  * Percentage Linear and Standard Deviation
-  * Piecewise Linear Contrast Stretch
+In a regression tree, if the result does not conform to linear regression, we can divide it into parts based on the threshold and calculate the sum of residuals squares, then use the best sum of residuals squares for all variables as roots and different values as leaves.
+
+
+However, in practical applications, leaves may be discrete and continuous mixed together, so we use gini impurity to treat them so that they can be combined for identification.
+
+**Overfitting**
+
+But sometimes, the model may facing the problem called overfitting:
+
+$$
+\text{best model}
+\begin{cases}
+  & \text{low bias = model the real relationship} \\
+  & \text{low variability = consistent predictions between datasets}
+\end{cases}
+$$
+
+
+The solution to this problem: 
+
+* Limit how trees grow (e.g. a minimum number of pixels in a leaf, 20 is often used)
+
+* Weakest link pruning (with tree score):
+
+  * use one less leaf, remove a leaf = sub-tree, SSR will get larger = termed PRUNING or cost complexity pruning
+  * Sum for the tree
+  * Tree score = SSR + tree penalty (alpha) * T (number of leaves)...lower better..
+
+**Random forest** - Many better than one(Grow many classification decision trees)
+
+* Use many trees, have each tree give a result, and then vote on the result
+* Bootstrapping (re-sampling by replacement data to make a decision = bagging
+* For each tree about 70% of the training data is used in the bootstrap, 30% is left out of the bag (OOB)
+
+**Maximum likelihood**
+
+Use probability to classify, it's the data based with most probably to have the values in our pixel
+
+**Support Vector Machine (SVM)**
+
+A linear binary classifier - like logistic regression.
+
+It finds the divide in the data (e.g. classes) and places a line at the division from the closest points.
+
+
+<big>**Apply to imagery**</big>
+
+\begin{cases}
+  & \text{Supervised: Put known label onto new data(e.g. machine learning)} \\
+  & \text{Unsupervised: Categorize data with labels that are not known in advance(e.g. k-means)}
+\end{cases}
 
 
 ## Application
 
-According to the articles I have looked up so far, the correction technology of remote sensing has been relatively mature and widely used in various places (although it is more used for data processing before main analysis rather than see correction as a main discussion topic). For example, @GHOLIZADEH2018240 mainly studied the relationship between soil environment and species diversity through remote sensing data, but adopted many correction methods and PCA dimensionality reduction technology to conduct preliminary processing of remote sensing data.
+At present, classifier-related technologies have been widely used in image recognition in remote sensing. Considering only the application of land cover, there are many articles, which seem to be mainly divided into two categories, on the one hand, plaints cover[@John; @STOJANOVA2010256], and on the other hand, remote sensing images of urban space[@Ding].
 
+Looking at the articles related to this, it can be seen that the development history of its entire discipline is roughly as follows:
 
-But in the cutting-edge research, calibration still has its room for progress, it seems that the continued study of calibration technology is mainly reflected in two parts. One is to consider the correction in different natural environments, such as polar[@Nitze2018] and desert [@Ouatiki2023] regions, the main goal of which is to make the application of remote sensing technology in extreme areas more stable and reliable. The other is to try to build more advanced models, which may be mainly combined with time series [@Roujean1992], machine learning [@Huifang] or data fusion [@HAMM2012666] [@Thienrry], with the main goal of better batch processing of remote sensing data in complex environments.
+When the remote sensing related to classifiers was just becoming popular, around the end of last century and the beginning of this century, researchers began to try to combine the two fields, such as @6425391 using SVM and @FRIEDL1997399 using decision tree to process remote sensing images, and these papers generally focused on how to clean the initial data and model training, that is, the most basic model building and analysis process.
 
+Later, as more and more people pay attention to this field, more authors begin to compare the processing effects of different machine learning methods and try to put forward suggestions for improvement. In @rs13030368's article, random forest was a good classifier for large-area land-cover classifications, while @park2021assessment thinks XGBoost is a better model.
+
+In recent years, deep learning has attracted the attention of scholars in this direction. The most basic CNN convolution[@9140372], JDR based on CNN and MLP[@ZHANG2019173], DBN [@Lv]and other models have been considered and optimized in this direction. In fact, the results of these models are generally better than traditional machine learning.
 
 ## Reflection
 
-There is no doubt that this lesson is a very important step in remote sensing. In GIS last semester I got uncorrected data and used it to draw a very bad graph (thanks to my friend for teaching me how to find the correct data!). It is foreseeable that these methods will be frequently used as a very basic part in future practice, just like writing literature review in an article. In addition, I have frequently used methods such as PCA in other courses, but I did not put them into practice in this course. I'd like to try them out later if I get the chance to see if there's any difference between them and the apps in other classes (although I can't quite tell the difference so far).
+There is no doubt that the use of machine learning to distinguish remote sensing images is undoubtedly a very important part of remote sensing. Unfortunately, it seems that the problem related to deep learning was not mentioned in the lecture, although it is a hot topic in recent years. Among the research fields I mentioned before, I am most interested in the research topic of @Ding. Through the analysis of remote sensing images in different periods, they clearly reflect the relationship between natural environment and urban expansion, which is undoubtedly one of the important roles of remote sensing in urban analysis.
+<p align="center">
 
-But it's very likely that the things that are taught in this lecture will only be used as tools and I won't study them in depth. I looked at the papers I mentioned earlier, and to be honest, the results didn't look very good, and although the authors used very complex models, they didn't have as significant an impact on the results as I expected.
+<img src="fig/week7/fig2.png" alt="Alt Text" width="500"/>
 
+</p>
+
+<p align="center">
+*The land cover maps in Shenzhen from 1979 to 2022.*
+</p>
+
+In addition, this paper also reflects the relationship between different areas within the city through remote sensing images, and this discussion of taking into account social development and natural environment is, in my opinion, the mainstream direction in the coming decades.
+
+<p align="center">
+
+<img src="fig/week7/fig3.png" alt="Alt Text" width="700"/>
+
+</p>
+
+<p align="center">
+*The relationship between transportation and urban land increase from 1979 to 2022. (a)The road network overland on the map of urban land expansion. (b) The transportation distance histogram for urban land increase.*
+</p>
 
 ## References
