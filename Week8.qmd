@@ -1,109 +1,164 @@
 ---
-title: "Data processing"
-
+title: "Classification II"
 ---
 
 ## Summary
 
 ### Definition
 
-* Radiance, refers to any radiation leaving the Earth (i.e. upwelling, toward the sensor.
+OBIA: 
+  - Superpixels = Consider shapes based on the similarity (homogeneity) or difference (heterogeneity) of the cells 
 
-* Irradiance, is used to describe downwelling radiation reaching the Earth from the sun.
+### Part 1: Land Cover Classification
 
-* Digital number(DN)(0-255 for 8 bit ot 0-65536 for 12 bit): Intensity of the electromagnetic radiation per pixel.
+<big>**Object based image analysis (OBIA)**</big>
 
-* Reflectance: a property of a material, typically surface reflectance(bottom of atmosphere) but also can be top of atmosphere reflectance.
+Most common method: SLIC (Simple Linear Iterative Clustering)
 
-* Hemispherical reflectance: All of the light leaving the surface goes straight to the sensor (nothing is intercepted or at an angle)
+  * work out spatial distance (from regular points on the image to centre of pixel) and colour difference
+  * Package: SegOptim
 
-* Apparent reflectance(reflectance): create reflectance accounting for atmospheric and illumination effects. BUT this typically doesn't deal with shadows and directional effects (e.g. viewing angles)
 
-* Mosaicking (similar to merging in GIS): feather the images together to create a seamless mosaic or images.
+<big>**Sub pixel analysis**</big>
 
-* Seamline: The dividing line.
+Remotely sensed images often present a mix of both pure and mixed pixels. Traditional hard classification methods assign mixed pixels to the class with the highest coverage or probability, inevitably leading to information loss. To address this issue, soft classification techniques have been introduced. These methods allocate pixel fractions to the corresponding land cover classes based on the area represented within a pixel. However, this approach does not provide information about the spatial distribution of these fractions within the pixel.
 
-### Part 1: Corrections
+@atkinson1997innovations proposed a solution by suggesting the spatial assignment of fractions to sub-pixels within each pixel. This divides every pixel into a predefined number of sub-pixels, enabling a more detailed representation of lower-resolution pixels. Sub-pixel mapping algorithms have been applied in various forms and on fraction images with different spatial resolutions. However, assessing the accuracy of these algorithms poses challenges due to the lack of high-resolution ground truth imagery.
 
-To deal with the flaws in remotely sensed images, several steps are used to correct them.
+To overcome this limitation, high-resolution reference classifications are degraded to generate artificial fraction images. These artificial fraction images are then used as input for the sub-pixel mapping process, with the original reference image serving as ground truth. This approach facilitates the accuracy assessment of sub-pixel mapping algorithms. This study aims to utilize identical reference images across different sub-pixel mapping techniques, enabling a comparative evaluation of their performance.
 
+EXAMPLE: 
+
+|band | water| vegeration | soil|
+|:-----------:|:------:|:-----------:|:------:|
+|3 | 13| 22 | 70|
+|4 | 5v| 80 | 60|
+
+\begin{align*}
+\begin{bmatrix}
+ \text{band } 3\\
+ \text{band } 4\\
+ \text{sum to } 1
+\end{bmatrix} &= \begin{bmatrix}
+ p_{\text{water}} & p_{\text{veg}} & p_{\text{soil}}\\
+ p_{\text{water}} & p_{\text{veg}} & p_{\text{soil}}\\
+ 1 & 1 & 1
+\end{bmatrix}\begin{bmatrix}
+ f_{\text{water}} \\
+ f_{\text{veg}}\\
+ f_{\text{soil}}
+\end{bmatrix}
+\end{align*}
+
+*Step 1:* take the inverse matrix of endmembers
+
+\begin{align*}
+\begin{bmatrix}
+ 13 & 22 & 70\\
+ 5 & 80 & 60\\
+ 1 & 1 & 1
+\end{bmatrix} \to \begin{bmatrix}
+ -0.0053 & -0.0127& 1.1322\\
+ -0.0145& 0.0150 & 0.1137\\
+ 0.0198 & -0.0024 & -0.2460
+\end{bmatrix}
+\end{align*}
+
+*Step 2: * solve if band 3 = 25 and band 4 = 57
+
+\begin{align*}
+\begin{bmatrix}
+ f_{\text{water}} \\
+ f_{\text{veg}}\\
+ f_{\text{soil}}
+\end{bmatrix} &= \begin{bmatrix}
+ -0.0053 & -0.0127& 1.1322\\
+ -0.0145& 0.0150 & 0.1137\\
+ 0.0198 & -0.0024 & -0.2460
+\end{bmatrix}\begin{bmatrix}
+ 25 \\
+ 57\\
+ 1
+\end{bmatrix}
+\end{align*}
+
+Thus get:
+\begin{bmatrix}
+ 0.27 \\
+ 0.61\\
+ 0.11
+\end{bmatrix}
+27% water, 61% vegetation and 11% soil
+
+### Part 2:  Accuracy
 <p align="center">
-  <img src="fig/week3/correction.png" alt="Alt Text" width="600"/>
-</p>
-<p align="center">
-  *Corrections for different problem*
-</p>
 
-<big>**Geometric correction**</big> 
+<img src="fig/week8/fig1.png" alt="Alt Text" width="500"/>
 
-<p align="center">
-  <img src="fig/week3/fig1.png" alt="Alt Text" width="300"/>
-</p>
-<p align="center">
-  *Visualization of geometric correction*
 </p>
 
- 
-**Step 1:** model coordinates to give geometric transformation coefficients.\
-**Step 2:** use distorted x or y as the dependent or independent for linear regression.\
-$$
-\left\{\begin{matrix}
- x = a_{0} + a_{1}x^{i} + a_2y^i + \epsilon_i \\ 
- y = b_{0} + b_{1}x^{i} + b_2y^i + \epsilon_i 
-\end{matrix}\right.
-$$
-from positions in original image($x^i$ and $y^i$) to rectified map($x$ and $y$). \
+<p align="right">
 
+*Confusion matrix*
 
-**Step 3:** minimize the RMSE.
-
-<big>**Atmospheric correction**</big>
-
-<p align="center">
-  <img src="fig/week3/fig3.png" alt="Alt Text" width="300"/>
 </p>
-<p align="center">
-  *Comparison before and after atmospheric correction* 
-</p>
+
+
+wiki:confusion_matrix
+
+* Kappa
+  * $k = \frac{p_{o}-p_{e}}{1 - p_e}$
+  * $p_o$: the propotyion of cases correctly classified(accuracy) $=\frac{TP+TN}{TP+TN+FP+FN}$
+  * $p_e$: expected cased correctly classified by chance
+
+* F1-score
+  * $F1 = \frac{2*Precesion*Recall}{Precision+Recall}$
+or
+  * $F1 = \frac{TP}{TP+\frac{1}{2}*(FP+FN)}$
+  * values from 0 to 1, larger F1-score, better performance.
   
+* ROC curve
 
+  * $True\ positive\ rate = \frac{TP}{TP+FN}$
+  * $False\ positive\ rate = \frac{FP}{FP+TN}$
+  * Goal: Maximise true positives and minimise false positives
+  * Area Under the ROC Curve (AUC, or AUROC): Perfect value will be 1, random will be 0.5
 
-### Part 2: Data joining and enhancement
+### Cross Validation
 
-#### Joining
+Dividing the data set into the training set and the test set, using only one data set as the test set and all the other data as the training set, repeats this step N times (N is the number of data in the data set).
 
 <p align="center">
-  <img src="fig/week3/fig2.png" alt="Alt Text" width="400"/>
+<img src="fig/week8/fig2.png" alt="Alt Text" width="300"/>
 </p>
+
+<p align="right">
+[@phdthesis]
+</p>
+
+<big>**Spatial cross validation**</big>: same as cross validation but with clustering to the folds
+
 <p align="center">
-  *How to join* 
+<img src="fig/week8/fig3.png" alt="Alt Text" width="300"/>
 </p>
 
-[@join]
+<p align="right">
+[@spatial-cv]
+</p>
 
-
-#### Image enhenrence
-
-* Contrast Enhancement: expand the range of image band using
-
-  * Minimum-Maximum
-  * Percentage Linear and Standard Deviation
-  * Piecewise Linear Contrast Stretch
 
 
 ## Application
 
-According to the articles I have looked up so far, the correction technology of remote sensing has been relatively mature and widely used in various places (although it is more used for data processing before main analysis rather than see correction as a main discussion topic). For example, @GHOLIZADEH2018240 mainly studied the relationship between soil environment and species diversity through remote sensing data, but adopted many correction methods and PCA dimensionality reduction technology to conduct preliminary processing of remote sensing data.
+The various accuracy tests we spent a large part of the lecture talking about are actually some fixed methods for scoring models. They are used to analyze the results of almost all models. At the same time, they have little room for research.
 
+As for spatial cross-validation, many papers will apply this validation method to reduce the influence of spatial dependence structure between data on fitting and prediction ability.Especially in recent years, it seems that the effect of spatial dependence on model results has been noticed by more and more researchers.[@deppner2024accounting; @Beigait; @allen2020permutation] Before looking for relevant materials, I thought that this method was a verification method similar to confusion matrix. In fact, to my surprise, some scholars are still considering how to improve this method.
 
-But in the cutting-edge research, calibration still has its room for progress, it seems that the continued study of calibration technology is mainly reflected in two parts. One is to consider the correction in different natural environments, such as polar[@Nitze2018] and desert [@Ouatiki2023] regions, the main goal of which is to make the application of remote sensing technology in extreme areas more stable and reliable. The other is to try to build more advanced models, which may be mainly combined with time series [@Roujean1992], machine learning [@Huifang] or data fusion [@HAMM2012666] [@Thienrry], with the main goal of better batch processing of remote sensing data in complex environments.
-
+@leRest2014spatial's research assesses an alternative method employing a spatial cross-validation technique. While this technique is typically utilized for model assessment, it can also yield valuable insights for variable selection in the presence of spatial autocorrelation. The study proposes the use of a specific form of spatial cross-validation known as spatial leave-one-out (SLOO), which offers a criterion akin to the AIC when spatial autocorrelation is absent. SLOO exclusively computes non-spatial models and employs a threshold distance (equivalent to the range of RSA) to ensure spatial independence for each omitted point. The study initially conducts simulations to compare SLOO's performance with that of AIC. It proves particularly advantageous when the range of RSA is limited, a characteristic often observed in spatial tools. Consequently, SLOO emerges as a promising approach for selecting pertinent variables from a wide range of ecological spatial datasets.
 
 ## Reflection
 
-There is no doubt that this lesson is a very important step in remote sensing. In GIS last semester I got uncorrected data and used it to draw a very bad graph (thanks to my friend for teaching me how to find the correct data!). It is foreseeable that these methods will be frequently used as a very basic part in future practice, just like writing literature review in an article. In addition, I have frequently used methods such as PCA in other courses, but I did not put them into practice in this course. I'd like to try them out later if I get the chance to see if there's any difference between them and the apps in other classes (although I can't quite tell the difference so far).
-
-But it's very likely that the things that are taught in this lecture will only be used as tools and I won't study them in depth. I looked at the papers I mentioned earlier, and to be honest, the results didn't look very good, and although the authors used very complex models, they didn't have as significant an impact on the results as I expected.
+I found the exploration of spatial cross-validation particularly intriguing.  While I initially perceived it as a standard validation method, @leRest2014spatial's research introduced me to the concept of spatial leave-one-out (SLOO) cross-validation.  This innovative approach, which accounts for spatial autocorrelation, showed promise in variable selection for ecological spatial datasets.  It was fascinating to learn about ongoing efforts to refine and improve spatial validation techniques, highlighting the dynamic nature of research in this field.
 
 
 ## References
