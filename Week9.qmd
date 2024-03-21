@@ -1,109 +1,99 @@
 ---
 title: "Data processing"
-
 ---
 
 ## Summary
 
-### Definition
-
-* Radiance, refers to any radiation leaving the Earth (i.e. upwelling, toward the sensor.
-
-* Irradiance, is used to describe downwelling radiation reaching the Earth from the sun.
-
-* Digital number(DN)(0-255 for 8 bit ot 0-65536 for 12 bit): Intensity of the electromagnetic radiation per pixel.
-
-* Reflectance: a property of a material, typically surface reflectance(bottom of atmosphere) but also can be top of atmosphere reflectance.
-
-* Hemispherical reflectance: All of the light leaving the surface goes straight to the sensor (nothing is intercepted or at an angle)
-
-* Apparent reflectance(reflectance): create reflectance accounting for atmospheric and illumination effects. BUT this typically doesn't deal with shadows and directional effects (e.g. viewing angles)
-
-* Mosaicking (similar to merging in GIS): feather the images together to create a seamless mosaic or images.
-
-* Seamline: The dividing line.
-
-### Part 1: Corrections
-
-To deal with the flaws in remotely sensed images, several steps are used to correct them.
+In today's learning diary, I've chosen to write about topics related to temperature, simply because I'm more interested in it. In addition, I think it is also a very important part of remote sensing, with more than 700 articles published in the field of remote sensing surface temperature in 2020 alone.
 
 <p align="center">
-  <img src="fig/week3/correction.png" alt="Alt Text" width="600"/>
-</p>
-<p align="center">
-  *Corrections for different problem*
+<img src="fig/week9/fig1.png" alt="Alt Text" width="500"/>
 </p>
 
-<big>**Geometric correction**</big> 
-
 <p align="center">
-  <img src="fig/week3/fig1.png" alt="Alt Text" width="300"/>
-</p>
-<p align="center">
-  *Visualization of geometric correction*
+*Publication statistics in the field of remote sensing-based LST, 2000-2020*
 </p>
 
- 
-**Step 1:** model coordinates to give geometric transformation coefficients.\
-**Step 2:** use distorted x or y as the dependent or independent for linear regression.\
+<p align="right">
+[@li2023satellite]
+</p>
+
+<big>**Definition of Satellite-Derived LST**</big>
+
+LST is the thermodynamic temperature of a thin layer in the interface between soil, vegetation or other surface components and the atmosphere. It reflects how hot or cold is the Earth's surface would feel to the touch.
+
+
+
+<p align="center">
+<img src="fig/week9/fig2.png" alt="Alt Text" width="500"/>
+</p>
+
+<p align="center">
+*Schematic of the land surface in remote sensing*
+</p>
+
+<p align="right">
+[@li2023satellite]
+</p>
+
+$T_{si}$: surface temperature\
+$\varepsilon_{i}$: emissivity\
+$\alpha_{i}$: projected area weight for the ith visible component\
+$\theta_{v}$: VZA\
+$\phi_{v}$: viewing azimuth angle
+
+For a given satellite sensor, the radiometric temperature can be formulated as follows[@chandrasekhar2013radiative; @dash; @prata1995thermal]:
 $$
-\left\{\begin{matrix}
- x = a_{0} + a_{1}x^{i} + a_2y^i + \epsilon_i \\ 
- y = b_{0} + b_{1}x^{i} + b_2y^i + \epsilon_i 
-\end{matrix}\right.
+T_{\mathrm{s}}\left(\theta_{v}, \varphi_{v}\right)=B_{\lambda}^{-1}\left[\frac{R_{\lambda}\left(\theta_{v}, \varphi_{v}\right)-R_{a t_{\lambda} \uparrow}\left(\theta_{v}, \varphi_{v}\right)-\tau_{\lambda}\left(\theta_{v}, \varphi_{v}\right)\left[1-\varepsilon_{\lambda}\left(\theta_{v}, \varphi_{v}\right)\right] R_{a t_{\lambda} \downarrow}}{\tau_{\lambda}\left(\theta_{v}, \varphi_{v}\right) \varepsilon_{\lambda}\left(\theta_{v}, \varphi_{v}\right)}\right]
 $$
-from positions in original image($x^i$ and $y^i$) to rectified map($x$ and $y$). \
+$T_s$: radiometric temperature\
+$\theta_v$: viewing zenith angle(VZA)\
+$B_{\lambda }^{-1}$: inverse function of Planck's law\
+$R_\lambda$, $R_{at_{\lambda}\uparrow}$ and $_{at_{\lambda}\downarrow}$: at-sensor observed\ radiance, upward atmospheric radiance, and downward atmospheric radiance\
+$\tau_\lambda$: channel atmospheric transmittance\
+$\varepsilon_\lambda$: channel land surface emissivity(LSE)\
 
+<big>**Heat Island**</big>
 
-**Step 3:** minimize the RMSE.
+Buildings, roads, and other man-made structures have a higher capacity to absorb and release solar radiation compared to natural features like forests and bodies of water. Consequently, urban areas, characterized by dense concentrations of such structures and limited green spaces, tend to exhibit higher temperatures than surrounding regions, forming what is known as urban heat islands (UHI). The proliferation of urban populations, coupled with the exacerbation of UHI effects and the escalating frequency and duration of heatwaves due to climate change, raise significant concerns regarding the heightened health risks faced by vulnerable urban populations during extreme heat events. 
 
-<big>**Atmospheric correction**</big>
-
-<p align="center">
-  <img src="fig/week3/fig3.png" alt="Alt Text" width="300"/>
-</p>
-<p align="center">
-  *Comparison before and after atmospheric correction* 
-</p>
-  
-
-
-### Part 2: Data joining and enhancement
-
-#### Joining
+Remote sensing technology offers a valuable tool for monitoring the dynamics of UHI phenomena over time on a global scale. Thermal mapping derived from satellite imagery enables the tracking of land surface temperature (LST) variations, while optical data captures changes in land use and cover, aiding in the estimation of air temperatures across different urban zones. Once UHIs are identified and mapped, integrating socioeconomic data such as population demographics and health indicators into heat vulnerability indices (HVI) facilitates the identification of at-risk communities and informs targeted interventions aimed at mitigating the adverse health impacts associated with heatwaves.
 
 <p align="center">
-  <img src="fig/week3/fig2.png" alt="Alt Text" width="400"/>
+<img src="fig/week9/fig3.png" alt="Alt Text" width="500"/>
 </p>
+
 <p align="center">
-  *How to join* 
+*Land surface temperature (in K) image of Shenzhen, China*
 </p>
 
-[@join]
-
-
-#### Image enhenrence
-
-* Contrast Enhancement: expand the range of image band using
-
-  * Minimum-Maximum
-  * Percentage Linear and Standard Deviation
-  * Piecewise Linear Contrast Stretch
-
+<p align="right">
+[@WANG2019168]
+</p>
 
 ## Application
 
-According to the articles I have looked up so far, the correction technology of remote sensing has been relatively mature and widely used in various places (although it is more used for data processing before main analysis rather than see correction as a main discussion topic). For example, @GHOLIZADEH2018240 mainly studied the relationship between soil environment and species diversity through remote sensing data, but adopted many correction methods and PCA dimensionality reduction technology to conduct preliminary processing of remote sensing data.
+Understanding the urban heat island effect and finding ways to mitigate it has undoubtedly been the focus of environmental research in recent years. I thought I knew a lot about the heat island effect because it is, after all, one of the major problems facing China's megacities, but the articles I found about it really surprised me, because it seems that the main factors are not just the human actions I assumed. Firstly, it is mentioned in the analysis of heat island effect that urban heat waves are transient and obviously influenced by natural environment, and high-resolution data in time and space are needed to study them [@buo2023generating]. So a lot of research has focused on the seasonal heat island effect [@alma9931] or the daytime versus night heat island effect[@arellano] or the geographical location of the city as the heat island effect(especially humid and arid regions)[@alma9931576196604761]. 
 
+After learning this knowledge, I began to wonder what factors have the greatest influence on the heat island effect, and fortunately, there are some scholars who are also interested in this question:
 
-But in the cutting-edge research, calibration still has its room for progress, it seems that the continued study of calibration technology is mainly reflected in two parts. One is to consider the correction in different natural environments, such as polar[@Nitze2018] and desert [@Ouatiki2023] regions, the main goal of which is to make the application of remote sensing technology in extreme areas more stable and reliable. The other is to try to build more advanced models, which may be mainly combined with time series [@Roujean1992], machine learning [@Huifang] or data fusion [@HAMM2012666] [@Thienrry], with the main goal of better batch processing of remote sensing data in complex environments.
+@IMHOFF2010504 conducted a spatial analysis using Landsat TM-based NLCD 2001 data for impervious surface area (ISA) and MODIS data averaged over three years (2003–2005) for land surface temperature (LST) to study the urban heat island (UHI) skin temperature amplitude and its correlation with development intensity, size, and ecological setting in 38 major cities across the continental United States. Their findings revealed that the ecological context significantly influences the amplitude of summer daytime UHI, with the largest differences observed for cities situated in temperate broadleaf and mixed forest biomes. ISA was identified as the primary driver for temperature increase, explaining 70% of the total variance in LST across all cities. On average, urban areas were notably warmer than non-urban fringes by 2.9 °C, except for cities in arid and semiarid climates. The UHI amplitude exhibited seasonal asymmetry, with a higher difference in summer (4.3 °C) compared to winter (1.3 °C). In desert environments, the response of LST to ISA displayed a unique "U-shaped" horizontal gradient. The findings suggest a possible heat sink effect in certain cities. Overall, the study highlights that UHI amplitude increases with city size and varies seasonally across different biomes, particularly in forested ecosystems, indicating potential implications for residential energy consumption during summer.
 
+<p align="center">
+<img src="fig/week9/fig4.png" alt="Alt Text" width="500"/>
+</p>
+
+<p align="center">
+*A&B show typical layout, C shows the cities and their biomes used in this article*
+</p>
+
+What is more interesting is that I used to think that vegetation could slow down the heat island effect because of its ability to absorb carbon dioxide, etc. In @PARK2021101655's article, it is actually due to the fact that trees can provide shelter for cities, thus reducing the formation of heat waves, which shows how sensitive heat waves are to the environment, so it really needs high-precision sensors to fully analyze them.
 
 ## Reflection
 
-There is no doubt that this lesson is a very important step in remote sensing. In GIS last semester I got uncorrected data and used it to draw a very bad graph (thanks to my friend for teaching me how to find the correct data!). It is foreseeable that these methods will be frequently used as a very basic part in future practice, just like writing literature review in an article. In addition, I have frequently used methods such as PCA in other courses, but I did not put them into practice in this course. I'd like to try them out later if I get the chance to see if there's any difference between them and the apps in other classes (although I can't quite tell the difference so far).
+Exploring the concept of UHI, I've realized the complex interplay between natural and anthropogenic factors in influencing urban temperature patterns.   While human activities contribute to the formation of heat islands, ecological settings, such as vegetation cover and geographical location, also play significant roles. This underscores the importance of considering both natural and human-induced factors in UHI research and mitigation strategies.
 
-But it's very likely that the things that are taught in this lecture will only be used as tools and I won't study them in depth. I looked at the papers I mentioned earlier, and to be honest, the results didn't look very good, and although the authors used very complex models, they didn't have as significant an impact on the results as I expected.
+Reflecting on the articles reviewed, I've gained a deeper understanding of the multifaceted nature of the UHI phenomenon and its implications for urban sustainability and public health.   Moving forward, I'm intrigued to explore interdisciplinary approaches that combine remote sensing, climatology, and urban planning to develop effective strategies for mitigating the impacts of heat islands and promoting resilient cities.
 
 
 ## References
