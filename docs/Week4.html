@@ -20,7 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -138,31 +157,19 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Week7.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data processing</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Classification I</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Week8.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data processing</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Classification II</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Week9.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Data processing</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">bibliography: references.bib</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">temperature</span></span></a>
   </div>
 </li>
     </ul>
@@ -175,8 +182,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#application" id="toc-application" class="nav-link active" data-scroll-target="#application"><span class="header-section-number">5</span> Application</a></li>
-  <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection"><span class="header-section-number">6</span> Reflection</a></li>
+  <li><a href="#application" id="toc-application" class="nav-link active" data-scroll-target="#application"><span class="header-section-number">4.1</span> Application</a></li>
+  <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection"><span class="header-section-number">4.2</span> Reflection</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">4.3</span> References</a></li>
   </ul>
 </nav>
     </div>
@@ -200,16 +208,59 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Edinburgh, located in southeastern Scotland, is the capital city of Scotland. It follows the development characteristic of most English cities, which is to gradually expand based on the original Old Town and develop the New Town (although it is called New Town, it is more than three hundred years old). Today, the city of Edinburgh develops outwards with the old Town and the New town as the core, especially extending to the southwest since the barrier to northward expansion was the lake and encircling marsh. In economic terms, Edinburgh today is primarily a service provider and the second largest travel destination in the UK. At the same time, as can be seen from its published 2030 plan, the Edinburgh government hopes to develop its northern coastal natural resources for further development of tourism at this stage. It is worth mentioning that the tourism landscape development project in the north of the country has had a government-led development plan since 2000, but due to various problems such as the financial crisis and defamation charges, its planning has been continuously shelved, and has been replaced by another similar plan, but this plan is still in the initial stage of establishment, there is still a lot of room for development. In addition, another focus of the Edinburgh government is the establishment of the blue and green network of the city, which is expected to complete the establishment of the blue and green network of the entire city of Edinburgh by 2030 and achieve the goal of zero carbon emissions, so as to effectively mitigate its heat island effect.</p>
-<section id="application" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Application</h1>
-<p>If we want to get a deeper understanding of this kind of problem, you can consider some quantitative indicators related to remote sensing, which may include some data related to climate change, population activity, and land north of Edinburgh over the past few decades. For example, the impact of tourism on the heat island effect of Edinburgh, the change trend of environmental resources in the northern coastal areas, the expansion of urban area in the north of Edinburgh, the growth of population and even the change of its composition, as well as the transformation of some land uses may also reflect the problems it is currently facing. 根据以上信息可知，在未来几年中爱丁堡的环保型旅游项目很可能成为其所需要的重点项目，因此</p>
+<p>Edinburgh is located in the southeast of Scotland and is the capital of Scotland. It follows the development characteristics of most British cities, which are gradually expanded on the basis of the original old town and developed into a new town (although it is called a new town, it has a history of more than 300 years).<span class="citation" data-cites="frommers-edinburgh">(<a href="#ref-frommers-edinburgh" role="doc-biblioref">Frommer’s, n.d.</a>)</span>Today, the city of Edinburgh grows outwards with the old Town and the New Town at its core, particularly to the south-west, as the obstacles to expansion to the north are the loch and the surrounding bogs.<span class="citation" data-cites="KallinHamish2021Ctrg">(<a href="#ref-KallinHamish2021Ctrg" role="doc-biblioref"><span>“Chasing the Rent Gap down on Edinburgh’s Waterfront: State Failure, Devalorisation, and the Enduring Promise of Potential”</span> 2021</a>)</span></p>
+<p>From an economic point of view, Edinburgh today is primarily a service provider and the second largest tourist destination in the UK. However, although the city of Edinburgh has developed into the second largest tourist destination in the United Kingdom, the coastal areas to the north are still undeveloped, and the economic and commercial center of Edinburgh is mostly concentrated in the southwest of Edinburgh Castle.</p>
+<p align="center">
+<img src="fig/week4/fig1.png" alt="Alt Text" width="500">
+</p>
+<p align="right">
+<em>Economic centers in Edinburgh</em>
+</p>
+<p>It can also be seen from the 2030 plan published by the Edinburgh government that the Edinburgh government hopes to develop the natural resources of the north coast at this stage and further develop tourism.<span class="citation" data-cites="edinburghcityplan2030">(<a href="#ref-edinburghcityplan2030" role="doc-biblioref">The City of Edinburgh Council(a), n.d.</a>)</span> It is worth mentioning that the tourism landscape development project in the north of the country has had a government-led development plan since 2000, but due to various issues such as the financial crisis, defamation allegations, its planning has been shelved and replaced by another similar plan, but it is still in the preliminary development stage and there is still a lot of room for development.<span class="citation" data-cites="gray_capitals_2023">(<a href="#ref-gray_capitals_2023" role="doc-biblioref">Gray and Kallin 2023</a>)</span></p>
+<p>In addition, another focus of the Edinburgh Government is the establishment of the City Blue and Green network, which is expected to complete the establishment of the entire Edinburgh City blue and green network by 2030, to achieve the goal of zero carbon emissions, so as to effectively mitigate its heat island effect. <span class="citation" data-cites="edinburghclimate tallushi_assessment_nodate">(<a href="#ref-edinburghclimate" role="doc-biblioref">The City of Edinburgh Council(b), n.d.</a>; <a href="#ref-tallushi_assessment_nodate" role="doc-biblioref">Tallushi, n.d.</a>)</span>The Edinburgh government’s 2030 plan calls for environmental and sustainable development of the northern and eastern docks.</p>
+<p>Thus, there may be a viable way to ensure that the northeast coast is developed while detecting its heat island effect and mitigating the environmental damage caused by such economic development.</p>
+<section id="application" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="application"><span class="header-section-number">4.1</span> Application</h2>
+<p>If we want to get a deeper understanding of such issues, we can consider some quantitative indicators related to remote sensing, which may include some data relating to climate change, population activity and land north of Edinburgh over the past few decades. For example, The impact of tourism on the Edinburgh Heat Island effect, which can be broken down into:</p>
+<ul>
+<li>The heat island effect in Edinburgh’s coastal areas at different times of the day, in particular seasonality and the difference between night and day.</li>
+<li>Human travel activities such as the number of people travelling to Edinburgh, especially the coast, and the movement of vehicles have an impact on carbon emissions.</li>
+</ul>
+<p>At the same time, the change trend of environmental resources in the northern coastal areas is also worthy of attention and consideration, especially some land coverage issues, such as: - Are there industrial areas on the Edinburgh coast and what are their emissions = What is the vegetation coverage of the coast - Whether there are residential or commercial areas with high power air conditioning, or some resorts that have been built or are planned to be built that may have high emissions, etc.</p>
+<p>In addition, the expansion of the city to the north of Edinburgh, the growth of the population and even the change in its composition may also reflect the problems it is currently facing. According to the planning mentioned above, environmental tourism projects in Edinburgh are likely to become the key projects needed in the next few years, so it is necessary to carry out some analyses considering both environmental protection and tourism development. The model provided by <span class="citation" data-cites="MarksDanny2023UauT">Marks and Connell (<a href="#ref-MarksDanny2023UauT" role="doc-biblioref">2023</a>)</span> in his analysis of the political ecology of the heat island of Bangkok is likely to be helpful to my research, because it also analyzes the heat island effect in a traveling city and takes into account the influence of some behaviors of the floating population on the urban heat island.</p>
 </section>
-<section id="reflection" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> Reflection</h1>
-<p>This kind of research on a city’s policy is undoubtedly complicated, because it needs to consider many factors. To be honest, at the beginning I read a lot of literature but still didn’t know where to start. But from what I’ve written so far, it would be much easier to focus on just a small part of the city, especially if that part is a little more independent than the rest of the city.</p>
+<section id="reflection" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="reflection"><span class="header-section-number">4.2</span> Reflection</h2>
+<p>This kind of study of urban policy is undoubtedly complex, because it needs to consider many factors. To be honest, at first I read a lot of literature, but still didn’t know where to start. But from what I’ve written so far, it would be much easier to focus on just one small part of the city, especially if that part is more self-contained than the rest of the city. I think the development of the Edinburgh coast and its planned zero emissions plan is a key focus for the future, not just for Edinburgh, but for many parts of the world, so it would certainly be helpful to be able to apply remote sensing to these areas.</p>
+<p>In fact, I am not sure whether this research direction is suitable for Edinburgh. In the process of searching for materials, I have seen many similar studies applied in various regions of the world, but not many have been applied in Edinburgh or even the whole UK. This may be because the geographical location of the UK is too far north, and its urban heat island effect is not obvious. The other studies I’ve seen are in some equatorial region. But in any case, it is only when the actual research and analysis begins that we can determine whether this is a problem for Edinburgh, and the current information alone makes the topic worth discussing.</p>
+</section>
+<section id="references" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="references"><span class="header-section-number">4.3</span> References</h2>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-KallinHamish2021Ctrg" class="csl-entry" role="listitem">
+<span>“Chasing the Rent Gap down on Edinburgh’s Waterfront: State Failure, Devalorisation, and the Enduring Promise of Potential.”</span> 2021. <em>City (London, England)</em> 25 (5-6): 614–33.
+</div>
+<div id="ref-frommers-edinburgh" class="csl-entry" role="listitem">
+Frommer’s. n.d. <span>“City Layout.”</span> <a href="https://www.frommers.com/destinations/edinburgh/planning-a-trip/city-layout" class="uri">https://www.frommers.com/destinations/edinburgh/planning-a-trip/city-layout</a>.
+</div>
+<div id="ref-gray_capitals_2023" class="csl-entry" role="listitem">
+Gray, Neil, and Hamish Kallin. 2023. <span>“Capital’s Welfare Dependency: <span>Market</span> Failure, Stalled Regeneration and State Subsidy in <span>Glasgow</span> and <span>Edinburgh</span>.”</span> <em>Urban Studies</em> 60 (6): 1031–47. <a href="https://doi.org/10.1177/00420980221133041">https://doi.org/10.1177/00420980221133041</a>.
+</div>
+<div id="ref-MarksDanny2023UauT" class="csl-entry" role="listitem">
+Marks, Danny, and John Connell. 2023. <span>“Unequal and Unjust: The Political Ecology of Bangkok’s Increasing Urban Heat Island.”</span> <em>Urban Studies (Edinburgh, Scotland)</em>, 4209802211409–9.
+</div>
+<div id="ref-tallushi_assessment_nodate" class="csl-entry" role="listitem">
+Tallushi, Nerxhana. n.d. <span>“Assessment and Adaption of Urban Cultural Heritage Assets as Touristic Destination Towards the Impact of <span>UHI</span>.”</span>
+</div>
+<div id="ref-edinburghcityplan2030" class="csl-entry" role="listitem">
+The City of Edinburgh Council(a). n.d. <span>“City Plan 2030.”</span> <a href="https://www.edinburgh.gov.uk/cityplan2030" class="uri">https://www.edinburgh.gov.uk/cityplan2030</a>.
+</div>
+<div id="ref-edinburghclimate" class="csl-entry" role="listitem">
+The City of Edinburgh Council(b). n.d. <span>“Climate Change.”</span> <a href="https://www.edinburgh.gov.uk/climate-2" class="uri">https://www.edinburgh.gov.uk/climate-2</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

@@ -4,8 +4,8 @@ project:
 
 book:
   title: "0023RS"
-  author: "Norah Jones"
-  date: "2024/1/22"
+  author: "Jinyao Liu"
+  date: "2024/2/22"
   chapters:
     - index.qmd
     - Week1.qmd
@@ -16,8 +16,6 @@ book:
     - Week7.qmd
     - Week8.qmd
     - Week9.qmd
-    - intro.qmd
-    - summary.qmd
 
 bibliography: references.bib
 

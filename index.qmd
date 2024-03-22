@@ -1,9 +1,6 @@
 # Preface {.unnumbered}
 
-This is a Quarto book.
+I‘m Jinyao Liu from Tianjin, China. I am currently a student of Urban Spatial Science at the Centre for Advanced Spatial Analysis at University College London. Prior to that I received my BSC in Mathematics and Applied Mathematics from the University of Nottingham Ningbo.
+In the previous four years of study, I found myself more curious about the process of applying theoretical knowledge to practical problems, so I hope to find out how to apply various analysis methods and data in urban analysis through the one-year study in CASA. Before this course, I have never been exposed to problems related to remote sensing, so I hope to choose CASA0023 to expand my knowledge and find some knowledge that may be used in the future.
 
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
-
-```{r}
-1 + 1
-```
+In my spare time, I like classical music and some ball games very much. Playing piano and table tennis or volleyball are the activities I enjoy very much in my spare time. (Well, I have to admit that sometimes there is some pain when I practice the piano, such as Chopin's Ballade No. 1 made my eyes hurt! But I have to admit that you really feel good after bouncing down! :)
