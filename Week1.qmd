@@ -1,7 +1,7 @@
 ---
 title: "Getting started with remote sensing"
-
 ---
+
 ## Module aims
 
 Operationalise remotely sensed Earth observation data for informing decisions on environmental hazards arising from a changing climate, specifically in relation to urban areas and future urban sustainability.
@@ -32,8 +32,7 @@ Mie = particles are the same size compared to the wavelength
 
 Non selective = particles are much larger than the wavelength
 
-Data formats
-![Image 4](fig/week1/fig4.png)
+Data formats ![Image 4](fig/week1/fig4.png)
 
 $$ \left\{
 \begin{array}{l}
@@ -41,10 +40,6 @@ $$ \left\{
  \text{geostationary orbit = holds same position, usually only for communications.} 
 \end{array}
 \right. $$
-
-
-
-
 
 ### Two types of sensors
 
@@ -55,7 +50,7 @@ $$ \left\{
 | detecting reflected energy from the sun |               \-               |
 |     energy in electromagnetic waves     |               \-               |
 |   human eye, camera, satellite sensor   |      Radar, X-ray, LiDAR       |
-|     ![Image 1](fig/week1/fig1.png)      | ![Image 2](fig/week1/fig2.png)  |
+|     ![Image 1](fig/week1/fig1.png)      | ![Image 2](fig/week1/fig2.png) |
 
 [@Adamo]
 
@@ -63,9 +58,7 @@ $$ \left\{
 
 $$
 \lambda = \frac{c }{v} 
-$$
-![Image 3](fig/week1/fig3.png) This kind of energy waves reflected by the surface.
-[@unknown]
+$$ ![Image 3](fig/week1/fig3.png) This kind of energy waves reflected by the surface. [@unknown]
 
 ### Scattering in action
 
@@ -88,26 +81,19 @@ $$ \left\{
 \end{array}
 \right. $$
 
-
 ### Spectral resolution
 
 Take values for each wavelength across the electromagnetic spectrum to create a spectral signature thus every feature on Earth will have a unique spectral signature.
 
 Constrain: atmospheric window - Water vapour, ozone, carbon dioxide and atmospheric molecules block parts of the the spectrum, we can only observe where there aren't absorbed by the atmosphere.
 
-
-![Image 5](fig/week1/fig5.png)
-[@nasa_image]
-
+![Image 5](fig/week1/fig5.png) [@nasa_image]
 
 ## Applications
 
-Remote sensing can be used widely in nature analysis and human activities as shown follows.
-![Image 6](fig/week1/fig6.png)
-[@gisbox]
+Remote sensing can be used widely in nature analysis and human activities as shown follows. ![Image 6](fig/week1/fig6.png) [@gisbox]
 
 One of the applications I am very interested in is the use of remote sensing technology to predict fires, especially mountain fires. In the American College Students Mathematical Contest in Modeling in 2021, I tried related content, such as how to use remote sensing drones to monitor fire situations and inform local fire brigades in time. This is obviously more mathematical and will use a lot of modeling knowledge, but in fact there is a lack of a lot of remote sensing data, such as the fact that there will be a relatively long period of temperature change before the open fire burns [@MaffeiCarmine2021Cmat] and after it is extinguished[@SandalErzurumluGülden2024Dofi]. If remote sensing technology can be used to detect such changes, it will make a great contribution to the fire prediction and prevention of its recurrence.[@GaleMatthewG.2021Ffft]
-
 
 ## Refelction
 

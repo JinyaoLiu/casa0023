@@ -9,7 +9,3 @@ xaringanExtra::embed_xaringan(
   url = "https://jinyaoliu.github.io/0023_ppt/",
   ratio = "16:9")
 ```
-
-
-
-

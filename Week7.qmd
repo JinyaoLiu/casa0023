@@ -12,36 +12,33 @@ Feature space = scattergram of two bands (or things that have been made into ban
 
 inductive learning = given context we can use experience to make judgement
 
-In expert system: 
+In expert system:
 
-  - Knowledge Base = Rules of thumb, not always correct
+-   Knowledge Base = Rules of thumb, not always correct
 
-  - Inference Engine = Process of reaching a conclusion and the expert system is implemented
+-   Inference Engine = Process of reaching a conclusion and the expert system is implemented
 
-In machine learning: 
+In machine learning:
 
-  - Machine learning = science of computer modeling of learning process
-  - Algorithmic approach = code to solve a solution
-  
+-   Machine learning = science of computer modeling of learning process
+-   Algorithmic approach = code to solve a solution
+
 In classification and regression tree:
-  
-  -  Overfitting = leaf with just one person or one pixel value
-  -  Bias = difference between predicted value and true value, means the model is oversimplified
-  -  Variance = variability of model for a given point, if it's large than means the model does not genearlise well
-  - Pattern vector = all the band values per pixel (could include texture etc)
 
+-   Overfitting = leaf with just one person or one pixel value
+-   Bias = difference between predicted value and true value, means the model is oversimplified
+-   Variance = variability of model for a given point, if it's large than means the model does not genearlise well
+-   Pattern vector = all the band values per pixel (could include texture etc)
 
 ### Part 1: Review of how classified data is used
 
-|                 problems                 |             sensors             |
-|:---------------------------------------:|:------------------------------:|
-|          urban expansion           | Landsat |
-|         Air pollution and LULC     |      Sentinel-3 & Sentinel-5     |
-| Urban green spaces |    Different sensors used for different mapping purposes, but can be mixed      |
-|     Monitoring forests + illegal logging    |  Landsat (2000 to 2012)            |
-|   Forest fires  |      Landsat TM 1984      |
-
-
+|               problems               |                                 sensors                                 |
+|:------------------------------------:|:-----------------------------------------------------------------------:|
+|           urban expansion            |                                 Landsat                                 |
+|        Air pollution and LULC        |                         Sentinel-3 & Sentinel-5                         |
+|          Urban green spaces          | Different sensors used for different mapping purposes, but can be mixed |
+| Monitoring forests + illegal logging |                         Landsat (2000 to 2012)                          |
+|             Forest fires             |                             Landsat TM 1984                             |
 
 ### Part 2: How to classify remotely sensed data
 
@@ -54,7 +51,9 @@ In classification and regression tree:
 </p>
 
 <p align="right">
+
 [@QuoraKnowledgeBasedSystem]
+
 </p>
 
 <big>**Now: Machine Learning**</big>
@@ -63,15 +62,13 @@ A search through all the data to explain the input data and can be used on new i
 
 **Classification and regression trees (CART)**
 
-
+```{=tex}
 \begin{cases}
   & \text{dicision tree: classify data into two or more discrete categories } \\
   & \text{regression trees: predict continuous dependent variable }
 \end{cases}
-
-
+```
 In a regression tree, if the result does not conform to linear regression, we can divide it into parts based on the threshold and calculate the sum of residuals squares, then use the best sum of residuals squares for all variables as roots and different values as leaves.
-
 
 However, in practical applications, leaves may be discrete and continuous mixed together, so we use gini impurity to treat them so that they can be combined for identification.
 
@@ -87,22 +84,21 @@ $$
 \end{cases}
 $$
 
+The solution to this problem:
 
-The solution to this problem: 
+-   Limit how trees grow (e.g. a minimum number of pixels in a leaf, 20 is often used)
 
-* Limit how trees grow (e.g. a minimum number of pixels in a leaf, 20 is often used)
+-   Weakest link pruning (with tree score):
 
-* Weakest link pruning (with tree score):
-
-  * use one less leaf, remove a leaf = sub-tree, SSR will get larger = termed PRUNING or cost complexity pruning
-  * Sum for the tree
-  * Tree score = SSR + tree penalty (alpha) * T (number of leaves)...lower better..
+    -   use one less leaf, remove a leaf = sub-tree, SSR will get larger = termed PRUNING or cost complexity pruning
+    -   Sum for the tree
+    -   Tree score = SSR + tree penalty (alpha) \* T (number of leaves)...lower better..
 
 **Random forest** - Many better than one(Grow many classification decision trees)
 
-* Use many trees, have each tree give a result, and then vote on the result
-* Bootstrapping (re-sampling by replacement data to make a decision = bagging
-* For each tree about 70% of the training data is used in the bootstrap, 30% is left out of the bag (OOB)
+-   Use many trees, have each tree give a result, and then vote on the result
+-   Bootstrapping (re-sampling by replacement data to make a decision = bagging
+-   For each tree about 70% of the training data is used in the bootstrap, 30% is left out of the bag (OOB)
 
 **Maximum likelihood**
 
@@ -114,15 +110,14 @@ A linear binary classifier - like logistic regression.
 
 It finds the divide in the data (e.g. classes) and places a line at the division from the closest points.
 
-
 <big>**Apply to imagery**</big>
 
+```{=tex}
 \begin{cases}
   & \text{Supervised: Put known label onto new data(e.g. machine learning)} \\
   & \text{Unsupervised: Categorize data with labels that are not known in advance(e.g. k-means)}
 \end{cases}
-
-
+```
 ## Application
 
 At present, classifier-related technologies have been widely used in image recognition in remote sensing. Considering only the application of land cover, there are many articles, which seem to be mainly divided into two categories, on the one hand, plaints cover[@John; @STOJANOVA2010256], and on the other hand, remote sensing images of urban space[@Ding].
@@ -138,6 +133,7 @@ In recent years, deep learning has attracted the attention of scholars in this d
 ## Reflection
 
 There is no doubt that the use of machine learning to distinguish remote sensing images is undoubtedly a very important part of remote sensing. Unfortunately, it seems that the problem related to deep learning was not mentioned in the lecture, although it is a hot topic in recent years. Among the research fields I mentioned before, I am most interested in the research topic of @Ding. Through the analysis of remote sensing images in different periods, they clearly reflect the relationship between natural environment and urban expansion, which is undoubtedly one of the important roles of remote sensing in urban analysis.
+
 <p align="center">
 
 <img src="fig/week7/fig2.png" alt="Alt Text" width="500"/>
@@ -145,7 +141,9 @@ There is no doubt that the use of machine learning to distinguish remote sensing
 </p>
 
 <p align="center">
+
 *The land cover maps in Shenzhen from 1979 to 2022.*
+
 </p>
 
 In addition, this paper also reflects the relationship between different areas within the city through remote sensing images, and this discussion of taking into account social development and natural environment is, in my opinion, the mainstream direction in the coming decades.
@@ -157,7 +155,9 @@ In addition, this paper also reflects the relationship between different areas w
 </p>
 
 <p align="center">
+
 *The relationship between transportation and urban land increase from 1979 to 2022. (a)The road network overland on the map of urban land expansion. (b) The transportation distance histogram for urban land increase.*
+
 </p>
 
 ## References

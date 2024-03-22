@@ -6,8 +6,7 @@ title: "Classification II"
 
 ### Definition
 
-OBIA: 
-  - Superpixels = Consider shapes based on the similarity (homogeneity) or difference (heterogeneity) of the cells 
+OBIA: - Superpixels = Consider shapes based on the similarity (homogeneity) or difference (heterogeneity) of the cells
 
 ### Part 1: Land Cover Classification
 
@@ -15,9 +14,8 @@ OBIA:
 
 Most common method: SLIC (Simple Linear Iterative Clustering)
 
-  * work out spatial distance (from regular points on the image to centre of pixel) and colour difference
-  * Package: SegOptim
-
+-   work out spatial distance (from regular points on the image to centre of pixel) and colour difference
+-   Package: SegOptim
 
 <big>**Sub pixel analysis**</big>
 
@@ -27,13 +25,14 @@ Remotely sensed images often present a mix of both pure and mixed pixels. Tradit
 
 To overcome this limitation, high-resolution reference classifications are degraded to generate artificial fraction images. These artificial fraction images are then used as input for the sub-pixel mapping process, with the original reference image serving as ground truth. This approach facilitates the accuracy assessment of sub-pixel mapping algorithms. This study aims to utilize identical reference images across different sub-pixel mapping techniques, enabling a comparative evaluation of their performance.
 
-EXAMPLE: 
+EXAMPLE:
 
-|band | water| vegeration | soil|
-|:-----------:|:------:|:-----------:|:------:|
-|3 | 13| 22 | 70|
-|4 | 5v| 80 | 60|
+| band | water | vegeration | soil |
+|:----:|:-----:|:----------:|:----:|
+|  3   |  13   |     22     |  70  |
+|  4   |  5v   |     80     |  60  |
 
+```{=tex}
 \begin{align*}
 \begin{bmatrix}
  \text{band } 3\\
@@ -49,9 +48,10 @@ EXAMPLE:
  f_{\text{soil}}
 \end{bmatrix}
 \end{align*}
-
+```
 *Step 1:* take the inverse matrix of endmembers
 
+```{=tex}
 \begin{align*}
 \begin{bmatrix}
  13 & 22 & 70\\
@@ -63,9 +63,10 @@ EXAMPLE:
  0.0198 & -0.0024 & -0.2460
 \end{bmatrix}
 \end{align*}
+```
+*Step 2:* solve if band 3 = 25 and band 4 = 57
 
-*Step 2: * solve if band 3 = 25 and band 4 = 57
-
+```{=tex}
 \begin{align*}
 \begin{bmatrix}
  f_{\text{water}} \\
@@ -81,16 +82,20 @@ EXAMPLE:
  1
 \end{bmatrix}
 \end{align*}
-
+```
 Thus get:
+
+```{=tex}
 \begin{bmatrix}
  0.27 \\
  0.61\\
  0.11
 \end{bmatrix}
+```
 27% water, 61% vegetation and 11% soil
 
-### Part 2:  Accuracy
+### Part 2: Accuracy
+
 <p align="center">
 
 <img src="fig/week8/fig1.png" alt="Alt Text" width="500"/>
@@ -103,50 +108,56 @@ Thus get:
 
 </p>
 
-
 wiki:confusion_matrix
 
-* Kappa
-  * $k = \frac{p_{o}-p_{e}}{1 - p_e}$
-  * $p_o$: the propotyion of cases correctly classified(accuracy) $=\frac{TP+TN}{TP+TN+FP+FN}$
-  * $p_e$: expected cased correctly classified by chance
+-   Kappa
 
-* F1-score
-  * $F1 = \frac{2*Precesion*Recall}{Precision+Recall}$
-or
-  * $F1 = \frac{TP}{TP+\frac{1}{2}*(FP+FN)}$
-  * values from 0 to 1, larger F1-score, better performance.
-  
-* ROC curve
+    -   $k = \frac{p_{o}-p_{e}}{1 - p_e}$
+    -   $p_o$: the propotyion of cases correctly classified(accuracy) $=\frac{TP+TN}{TP+TN+FP+FN}$
+    -   $p_e$: expected cased correctly classified by chance
 
-  * $True\ positive\ rate = \frac{TP}{TP+FN}$
-  * $False\ positive\ rate = \frac{FP}{FP+TN}$
-  * Goal: Maximise true positives and minimise false positives
-  * Area Under the ROC Curve (AUC, or AUROC): Perfect value will be 1, random will be 0.5
+-   F1-score
+
+    -   $F1 = \frac{2*Precesion*Recall}{Precision+Recall}$ or
+    -   $F1 = \frac{TP}{TP+\frac{1}{2}*(FP+FN)}$
+    -   values from 0 to 1, larger F1-score, better performance.
+
+-   ROC curve
+
+    -   $True\ positive\ rate = \frac{TP}{TP+FN}$
+    -   $False\ positive\ rate = \frac{FP}{FP+TN}$
+    -   Goal: Maximise true positives and minimise false positives
+    -   Area Under the ROC Curve (AUC, or AUROC): Perfect value will be 1, random will be 0.5
 
 ### Cross Validation
 
 Dividing the data set into the training set and the test set, using only one data set as the test set and all the other data as the training set, repeats this step N times (N is the number of data in the data set).
 
 <p align="center">
+
 <img src="fig/week8/fig2.png" alt="Alt Text" width="300"/>
+
 </p>
 
 <p align="right">
+
 [@phdthesis]
+
 </p>
 
 <big>**Spatial cross validation**</big>: same as cross validation but with clustering to the folds
 
 <p align="center">
+
 <img src="fig/week8/fig3.png" alt="Alt Text" width="300"/>
+
 </p>
 
 <p align="right">
+
 [@spatial-cv]
+
 </p>
-
-
 
 ## Application
 
@@ -158,7 +169,6 @@ As for spatial cross-validation, many papers will apply this validation method t
 
 ## Reflection
 
-I found the exploration of spatial cross-validation particularly intriguing.  While I initially perceived it as a standard validation method, @leRest2014spatial's research introduced me to the concept of spatial leave-one-out (SLOO) cross-validation.  This innovative approach, which accounts for spatial autocorrelation, showed promise in variable selection for ecological spatial datasets.  It was fascinating to learn about ongoing efforts to refine and improve spatial validation techniques, highlighting the dynamic nature of research in this field.
-
+I found the exploration of spatial cross-validation particularly intriguing. While I initially perceived it as a standard validation method, @leRest2014spatial's research introduced me to the concept of spatial leave-one-out (SLOO) cross-validation. This innovative approach, which accounts for spatial autocorrelation, showed promise in variable selection for ecological spatial datasets. It was fascinating to learn about ongoing efforts to refine and improve spatial validation techniques, highlighting the dynamic nature of research in this field.
 
 ## References
